@@ -44,7 +44,7 @@ export default function RaffleHookSection() {
           <div className="raffle-col">
             <div className="raffle-col-header">
               <div className="rcol-badge supplements">
-                🎁 باقة مكملات Volt كاملة (بروتين + كارب + كرياتين)
+                🎁 مكملات Volt (بروتين أو كارب أو كرياتين)
               </div>
               <div className="rcol-title">الخدمات الفردية</div>
             </div>
@@ -54,7 +54,7 @@ export default function RaffleHookSection() {
                 <div className="rt-service">نظام تغذية / جدول تمرين</div>
                 <div className="rt-prize-label">
                   الجائزة:{" "}
-                  <strong>باقة مكملات Volt كاملة (بروتين + كارب + كرياتين)</strong>
+                  <strong>مكملات Volt</strong>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function RaffleHookSection() {
                 <div className="rt-service">جلسة ريكافري (عادية أو كاملة)</div>
                 <div className="rt-prize-label">
                   الجائزة:{" "}
-                  <strong>باقة مكملات Volt كاملة (بروتين + كارب + كرياتين)</strong>
+                  <strong>مكملات Volt</strong>
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function RaffleHookSection() {
                 <div className="rt-service">جلسات الحجامة (بكل أنواعها)</div>
                 <div className="rt-prize-label">
                   الجائزة:{" "}
-                  <strong>باقة مكملات Volt كاملة (بروتين + كارب + كرياتين)</strong>
+                  <strong>مكملات Volt</strong>
                 </div>
               </div>
             </div>
