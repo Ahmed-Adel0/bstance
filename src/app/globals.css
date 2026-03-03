@@ -483,7 +483,8 @@ nav {
   background: rgba(255, 179, 71, 0.04);
   border: 1px solid rgba(255, 179, 71, 0.14);
   border-radius: 16px;
-  display: inline-block;
+  display: block;
+  width: 100%;
   animation: fadeInUp 0.7s 0.45s ease both;
 }
 .hero-countdown {
@@ -809,17 +810,24 @@ nav {
 .raffle-col-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
   margin-bottom: 20px;
-  padding-bottom: 14px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .rcol-badge {
-  padding: 5px 14px;
+  padding: 6px 14px;
   border-radius: 50px;
   font-size: 0.72rem;
   font-weight: 900;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.4;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
 }
 .rcol-badge.supplements {
   background: rgba(255, 179, 71, 0.15);
@@ -3212,6 +3220,20 @@ footer {
   .loyalty-layout {
     grid-template-columns: 1fr;
   }
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-btns {
+    justify-content: center;
+  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -3258,14 +3280,39 @@ footer {
     grid-template-columns: 1fr;
   }
   .stats-glass {
-    padding: 16px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    width: 100%;
   }
   .stat-div {
     display: none;
   }
   .stat-item {
-    min-width: 45%;
+    background: rgba(61, 216, 200, 0.05);
+    border: 1px solid rgba(61, 216, 200, 0.1);
+    border-radius: 16px;
+    padding: 16px 12px;
+    width: 100%;
+    min-width: 0;
+  }
+  .stat-num {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+  .stat-lbl {
+    font-size: 0.68rem;
+    line-height: 1.4;
+    opacity: 0.7;
+  }
+  .cd-num {
+    font-size: 1.4rem;
+  }
+  .cd-lbl {
+    font-size: 0.55rem;
   }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -3281,7 +3328,19 @@ footer {
     justify-content: center;
   }
   .addons-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+  }
+  .addons-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+  .svc-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+  }
+  .svc-raffle-pill {
+    align-self: flex-end;
   }
   .rules-grid {
     grid-template-columns: 1fr;
@@ -3298,10 +3357,60 @@ footer {
   .raffle-logic {
     gap: 16px;
   }
+  .raffle-col {
+    padding: 20px 16px;
+  }
+  .raffle-col-header {
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rcol-badge {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+    width: auto;
+    text-align: right;
+  }
+  .rcol-title {
+    font-size: 1.05rem;
+    order: -1; /* Title first, then badge below it or vice versa */
+  }
+  .raffle-tier {
+    padding: 10px;
+    gap: 8px;
+  }
+  .rt-service {
+    font-size: 0.78rem;
+  }
+  .rt-prize-label {
+    font-size: 0.68rem;
+  }
   .testi-grid {
     grid-template-columns: 1fr;
   }
-  .addons-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .addons-grid,
+  .addons-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+  .stats-glass {
+    gap: 8px;
+    padding: 12px;
+  }
+  .stat-item {
+    padding: 14px 10px;
+  }
+  .stat-num {
+    font-size: 1.25rem;
+  }
+  .stat-lbl {
+    font-size: 0.6rem;
+  }
+  .cd-num {
+    font-size: 1.25rem;
+  }
+  .cd-box {
+    min-width: 45px;
+    padding: 8px 6px;
   }
 }

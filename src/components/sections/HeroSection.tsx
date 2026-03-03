@@ -46,12 +46,10 @@ export default function HeroSection() {
 
             {/* Sub */}
             <p className="hero-sub">
-              تجربة رياضية تجمع بين الاحترافية العلمية والنتائج الملموسة.
-              نضع بين يديك
+              B•Stance – لأن أفضل نسخة من جسدك تنتظرك.
               <br />
               <strong style={{ color: "rgba(255,255,255,0.85)" }}>
-                أحدث تقنيات الاستشفاء، التدريب الذكي، والخطط الغذائية الدقيقة
-                لتمكينك من بلوغ ذروة أدائك البدني.
+                نقدم حلول متكاملة من التدريب الذكي، الاستشفاء الفعال، والتغذية المصممة خصيصًا لك لتمنحك طاقة لا تنتهي
               </strong>
             </p>
 
@@ -103,7 +101,7 @@ export default function HeroSection() {
           </div>
           <div className="stat-div"></div>
           <div className="stat-item">
-            <span className="stat-num" data-t="3" data-p="+" data-s=" سنوات">
+            <span className="stat-num" data-t="5" data-p="+" data-s=" سنوات">
               0
             </span>
             <div className="stat-lbl">خبرة الفريق المتخصص</div>
