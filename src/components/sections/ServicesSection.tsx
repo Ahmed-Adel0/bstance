@@ -40,7 +40,6 @@ const recoveryServices = [
 const hijamaServices = [
   {
     icon: "🔴",
-    area: "رقبة",
     name: "حجامة الرقبة",
     desc: "تخفيف آلام الرقبة والصداع وتوتر الكتفين — تنشيط الدورة الدموية وتجديد الطاقة.",
     price: "150",
@@ -49,7 +48,6 @@ const hijamaServices = [
   },
   {
     icon: "🔴",
-    area: "ظهر",
     name: "حجامة الظهر",
     desc: "علاج الآلام المزمنة وتعزيز مرونة الظهر — الخيار الأول للرياضيين بعد الإجهاد.",
     price: "200",
@@ -58,7 +56,6 @@ const hijamaServices = [
   },
   {
     icon: "🔴",
-    area: "قدمين",
     name: "حجامة القدمين",
     desc: "تنشيط الدورة الدموية وتخفيف إجهاد الأطراف — استرخاء عميق للقدمين.",
     price: "250",
@@ -175,7 +172,6 @@ export default function ServicesSection() {
                   <div className="svc-card-left">
                     <div className="svc-card-icon svc-card-icon--red">
                       {s.icon}
-                      <span className="svc-card-icon-area">{s.area}</span>
                     </div>
                     <div className="svc-card-body">
                       <div className="svc-card-name">{s.name}</div>
