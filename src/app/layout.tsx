@@ -17,7 +17,7 @@ const tajawal = Tajawal({
 
 export const metadata: Metadata = {
   title: "B•Stance",
-  description: "B•Stance Official Website",
+  description: "The premier destination for elite performance, integrating professional training, scientific nutrition, and advanced physical recovery.",
   icons: {
     icon: "/imgs/Icon.png",
     shortcut: "/imgs/Icon.png",

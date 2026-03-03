@@ -18,8 +18,8 @@ export default function Footer() {
             <div className="foot-logo-text">B•Stance</div>
           </a>
           <div className="foot-desc">
-            مركز رياضي واستشفائي متكامل — تدريب + تغذية + استشفاء في منظومة
-            واحدة.
+            المقصد الرائد للأداء الرياضي النخبوي والاستشفاء البدني المتقدم —
+            نظام متكامل لإعادة تعريف توازنك وقوتك.
           </div>
           {/* <div className="foot-volt-area">
             <div className="foot-volt-label">OFFICIAL PARTNER</div>
