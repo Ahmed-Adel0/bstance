@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description: "B•Stance Official Website",
   icons: {
     icon: "/imgs/Icon.png",
+    shortcut: "/imgs/Icon.png",
     apple: "/imgs/Icon.png",
   },
 };
