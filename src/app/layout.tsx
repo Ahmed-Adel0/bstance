@@ -17,6 +17,10 @@ const tajawal = Tajawal({
 export const metadata: Metadata = {
   title: "B•Stance",
   description: "B•Stance Official Website",
+  icons: {
+    icon: "/imgs/Icon.png",
+    apple: "/imgs/Icon.png",
+  },
 };
 
 export default function RootLayout({

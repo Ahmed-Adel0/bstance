@@ -100,7 +100,6 @@ export default function Footer() {
             <li><a href="#why">لماذا B•Stance</a></li>
             <li><a href="#services">الخدمات الفردية</a></li>
             <li><a href="#team">فريق العمل</a></li>
-            <li><a href="#loyalty">نظام المكافآت</a></li>
             <li><a href="#faq">الأسئلة الشائعة</a></li>
             <li><a href="#booking">احجز الآن 📲</a></li>
           </ul>
@@ -118,7 +117,7 @@ export default function Footer() {
           </div>
           <div className="foot-contact-row">🚀<span>الافتتاح: 27 رمضان</span></div>
           <div className="foot-contact-row">
-            🎁<span>السحب: 12 – 26 رمضان</span>
+            🎁<span>السحب: 16 – 26 رمضان</span>
           </div>
         </div>
       </div>
