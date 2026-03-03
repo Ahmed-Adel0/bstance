@@ -114,11 +114,6 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="#loyalty" onClick={closeMenu}>
-              نظام المكافآت
-            </a>
-          </li>
-          <li>
             <a href="#faq" onClick={closeMenu}>
               الأسئلة الشائعة
             </a>

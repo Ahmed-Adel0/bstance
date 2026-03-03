@@ -11,7 +11,7 @@ export default function RaffleHookSection() {
           className="reveal"
         >
           <div className="s-label" style={{ justifyContent: "center" }}>
-            🏆 &nbsp;سحب الافتتاح الكبير — 12 حتى 26 رمضان
+            🏆 &nbsp;سحب الافتتاح الكبير — 16 حتى 26 رمضان
           </div>
           <h2
             className="s-title"

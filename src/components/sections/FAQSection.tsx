@@ -250,7 +250,7 @@ export default function FAQSection() {
           <span>🤔</span>
           <span>لم تجد إجابتك؟</span>
           <a
-            href="https://wa.me/201000000001"
+            href="https://wa.me/201279266345"
             target="_blank"
             rel="noopener noreferrer"
             className="faq-whatsapp-link"
