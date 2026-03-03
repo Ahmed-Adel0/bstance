@@ -210,7 +210,7 @@ nav {
   transform: translateY(-7px) rotate(-45deg);
 }
 .mob-menu {
-  display: none;
+  display: block; /* Always block but hidden via opacity/visibility */
   position: fixed;
   top: 66px;
   left: 0;
@@ -222,11 +222,15 @@ nav {
   z-index: 999;
   transform: translateY(-10px);
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .mob-menu.open {
   transform: translateY(0);
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .mob-menu ul {
   list-style: none;
@@ -3231,9 +3235,6 @@ footer {
   }
   .hamburger {
     display: flex;
-  }
-  .mob-menu {
-    display: block;
   }
   .hero {
     padding: 95px 4% 50px;
