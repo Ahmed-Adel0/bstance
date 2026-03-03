@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="foot-logo-text">B•Stance</div>
           </div>
           <div className="foot-desc">
-            مركز استشفاء ورياضي متكامل — تدريب + تغذية + استشفاء في منظومة
+            مركز رياضي واستشفائي متكامل — تدريب + تغذية + استشفاء في منظومة
             واحدة.
           </div>
           {/* <div className="foot-volt-area">

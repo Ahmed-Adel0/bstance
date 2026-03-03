@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo, Tajawal } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const cairo = Cairo({
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl">
       <body className={`${cairo.variable} ${tajawal.variable} antialiased font-cairo`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
