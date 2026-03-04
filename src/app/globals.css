@@ -2967,10 +2967,10 @@ footer {
 .tc-tag {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
+  gap: 4px;
+  padding: 4px 9px;
   border-radius: 50px;
-  font-size: 0.72rem;
+  font-size: 0.67rem;
   font-weight: 700;
   white-space: nowrap;
   transition: all 0.25s;
