@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import CountdownTimer from "@/components/ui/CountdownTimer";
 
-// تاريخ نهاية السحب — يتم تحديثه حسب الحملة
-const RAFFLE_END_DATE = "2026-03-27T17:59:59";
+
+
 
 export default function HeroSection() {
   return (

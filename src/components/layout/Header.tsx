@@ -34,11 +34,7 @@ export default function Header() {
         {/* Right: Nav links + hamburger */}
         <div className="flex items-center gap-3 sm:gap-4">
           <ul className="nav-links hidden md:flex items-center gap-3 lg:gap-4">
-            <li>
-              <a href="#raffle-hook" className="inline-flex items-center">
-                السحب 🏆
-              </a>
-            </li>
+
             <li>
               <a href="#packages" className="inline-flex items-center">
                 الباقات
@@ -88,11 +84,6 @@ export default function Header() {
 
       <div className={`mob-menu ${isOpen ? "open" : ""}`} id="mobMenu">
         <ul>
-          <li>
-            <a href="#raffle-hook" onClick={closeMenu}>
-              سحب Volt �
-            </a>
-          </li>
           <li>
             <a href="#packages" onClick={closeMenu}>
               باقات الاشتراك

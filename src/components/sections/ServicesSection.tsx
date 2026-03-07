@@ -97,21 +97,8 @@ export default function ServicesSection() {
           </div>
           <h2 className="s-title">الأسعار والتفاصيل — احجز ما يناسبك</h2>
           <p className="s-sub" style={{ margin: "0 auto", textAlign: "center" }}>
-            كل جلسة فردية تدخلك سحب{" "}
-            <strong style={{ color: "var(--gold)" }}>مكملات Volt </strong>تلقائياً 🎁 — بروتين أو كرياتين أو كارب.
+            استعد قوتك مع جلساتنا المتخصصة والمصممة خصيصاً لتلبية احتياجاتك الرياضية.
           </p>
-          <p style={{ margin: "0 auto", textAlign: "center" }}>أو تجربة B.Stance لمدة شهر مجانا</p>
-          <a
-            href="#raffle-hook"
-            className="svc-raffle-bridge"
-            aria-label="اعرف المزيد عن آلية السحب"
-          >
-            <span>🎯</span>
-            شوف تفاصيل الجوائز والسحب
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
         </div>
 
         <div className="svc-layout">
@@ -122,7 +109,7 @@ export default function ServicesSection() {
               <div>
                 <div className="svc-block-title">ريكافري · تدريب · تغذية</div>
                 <div className="svc-block-sub">
-                  🎁 كل جلسة = تذكرة سحب مكملات Volt
+                  تغذية علمية · استشفاء عضلي · أداء رياضي
                 </div>
               </div>
             </div>
@@ -233,7 +220,7 @@ export default function ServicesSection() {
         {/* CTA */}
         <div className="section-cta-bar">
           <a href="#booking" className="btn-primary">
-            📲 احجز جلستك وادخل السحب الآن ←
+            📲 احجز جلستك الآن ←
           </a>
         </div>
       </section>
