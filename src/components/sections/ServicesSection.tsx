@@ -6,16 +6,16 @@ const recoveryServices = [
     icon: "🥗",
     name: "نظام تغذية مخصص",
     desc: "خطة غذائية مصممة خصيصاً لجسمك وأهدافك وجدول تمرينك — تغذية علمية لا حرمان.",
-    price: "250",
-    originalPrice: "500",
+    price: "500",
+    originalPrice: "700",
     delay: "",
   },
   {
     icon: "🏋️",
     name: "جدول تمرين مخصص",
     desc: "برنامج تمرين احترافي مبني على مستواك وهدفك — يرفع أداءك ويحميك من الإصابات.",
-    price: "250",
-    originalPrice: "500",
+    price: "500",
+    originalPrice: "700",
     delay: "rd1",
   },
   {
@@ -50,16 +50,16 @@ const hijamaServices = [
     icon: "🔴",
     name: "حجامة الظهر",
     desc: "علاج الآلام المزمنة وتعزيز مرونة الظهر — الخيار الأول للرياضيين بعد الإجهاد.",
-    price: "200",
-    originalPrice: "300",
+    price: "300",
+    originalPrice: "400",
     delay: "",
   },
   {
     icon: "🔴",
     name: "حجامة القدمين",
     desc: "تنشيط الدورة الدموية وتخفيف إجهاد الأطراف — استرخاء عميق للقدمين.",
-    price: "250",
-    originalPrice: "300",
+    price: "300",
+    originalPrice: "400",
     delay: "rd2",
   },
 ];
@@ -190,11 +190,11 @@ export default function ServicesSection() {
                   </div>
                   <div className="svc-card-desc">
                     جلسة متكاملة لإعادة التوازن الكامل للجسم — توفّر أكثر من
-                    200 ج.م مقارنةً بالحجز المنفصل.
+                    250 ج.م مقارنةً بالحجز المنفصل.
                   </div>
                   <div className="svc-card-prices">
-                    <span className="svc-card-price">400 ج.م</span>
-                    <span className="svc-card-orig">600 ج.م</span>
+                    <span className="svc-card-price">500 ج.م</span>
+                    <span className="svc-card-orig">800 ج.م</span>
                   </div>
                 </div>
               </div>
