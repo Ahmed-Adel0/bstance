@@ -2,8 +2,8 @@
 import React from "react";
 import CountdownTimer from "@/components/ui/CountdownTimer";
 
-// تاريخ نهاية السحب — 27 رمضان 2026
-const RAFFLE_END_DATE = "2026-03-17T17:59:59";
+// تاريخ نهاية السحب — يتم تحديثه حسب الحملة
+const RAFFLE_END_DATE = "2026-03-27T17:59:59";
 
 export default function HeroSection() {
   return (
@@ -46,22 +46,12 @@ export default function HeroSection() {
 
             {/* Sub */}
             <p className="hero-sub">
-              B•Stance – لأن أفضل نسخة من جسدك تنتظرك.
+              B•Stance — منظومة متخصصة لإدارة الأداء الرياضي.
               <br />
               <strong style={{ color: "rgba(255,255,255,0.85)" }}>
-                نقدم حلول متكاملة من التدريب الذكي، الاستشفاء الفعال، والتغذية المصممة خصيصًا لك لتمنحك طاقة لا تنتهي
+                تدريب ذكي • تغذية دقيقة • استشفاء متقدم — كل شيء في مكان واحد لتصل لأقصى إمكانياتك.
               </strong>
             </p>
-
-            {/* Countdown — مفصول بـ spacer واضح */}
-            <div className="hero-countdown-wrap">
-              <div className="hero-countdown">
-                <div className="cd-label">
-                  🏆 سحب الافتتاح الكبير — الوقت المتبقي
-                </div>
-                <CountdownTimer targetDate={RAFFLE_END_DATE} />
-              </div>
-            </div>
 
             {/* CTAs */}
             <div className="hero-btns">
@@ -87,7 +77,7 @@ export default function HeroSection() {
           </div>
           <div className="stat-div"></div>
           <div className="stat-item">
-            <span className="stat-num" data-t="3" data-s=" متخصصين">
+            <span className="stat-num" data-t="4" data-s=" متخصصين">
               0
             </span>
             <div className="stat-lbl">في التغذية والتدريب والريكافري</div>

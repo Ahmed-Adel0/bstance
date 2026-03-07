@@ -10,7 +10,7 @@ export default function Header() {
 
       {/* STICKY CTA */}
       <div className="sticky-cta">
-        <a href="#booking">🎁 احجز مكانك في السحب </a>
+        <a href="#booking">📲 احجز جلستك الآن </a>
       </div>
 
       {/* NAV */}
@@ -90,12 +90,12 @@ export default function Header() {
         <ul>
           <li>
             <a href="#raffle-hook" onClick={closeMenu}>
-              السحب الكبير 🏆
+              سحب Volt �
             </a>
           </li>
           <li>
             <a href="#packages" onClick={closeMenu}>
-              باقات النخبة
+              باقات الاشتراك
             </a>
           </li>
           <li>
@@ -120,7 +120,7 @@ export default function Header() {
           </li>
         </ul>
         <a href="#booking" className="mob-cta-link" onClick={closeMenu}>
-          📲 احجز مكانك — دخول السحب فوري
+          📲 احجز جلستك الآن
         </a>
       </div>
     </>

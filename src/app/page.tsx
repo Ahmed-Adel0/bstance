@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import RaffleHookSection from '@/components/sections/RaffleHookSection';
-import GoldenOpportunitySection from '@/components/sections/GoldenOpportunitySection'; // محجوز — مدمج داخل RaffleHookSection
+// GoldenOpportunitySection — تم دمج محتواه ضمن RaffleHookSection
 import PackagesSection from '@/components/sections/PackagesSection';
 import WhyUsSection from '@/components/sections/WhyUsSection';
 import ServicesSection from '@/components/sections/ServicesSection';

@@ -101,8 +101,8 @@ export default function Footer() {
         <div>
           <h4>روابط سريعة</h4>
           <ul className="foot-links">
-            <li><a href="#raffle-hook">السحب الكبير 🏆</a></li>
-            <li><a href="#packages">باقات النخبة</a></li>
+            <li><a href="#raffle-hook">سحب Volt 🎁</a></li>
+            <li><a href="#packages">باقات الاشتراك</a></li>
             <li><a href="#why">لماذا B•Stance</a></li>
             <li><a href="#services">الخدمات الفردية</a></li>
             <li><a href="#team">فريق العمل</a></li>
@@ -121,9 +121,9 @@ export default function Footer() {
           <div className="foot-contact-row">
             🕐<span>السبت – الخميس: 1ص – 5م | 8م : 1ص | الجمعة: 8م : 1ص</span>
           </div>
-          <div className="foot-contact-row">🚀<span>الافتتاح: 27 رمضان</span></div>
+          <div className="foot-contact-row">🚀<span>الافتتاح: قريباً</span></div>
           <div className="foot-contact-row">
-            🎁<span>السحب: 16 – 26 رمضان</span>
+            🎁<span>سحب مكملات Volt — خلال فترة الافتتاح</span>
           </div>
         </div>
       </div>

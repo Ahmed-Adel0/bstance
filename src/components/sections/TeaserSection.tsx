@@ -24,7 +24,7 @@ export default function TeaserSection() {
             style={{ margin: "0 auto", marginBottom: "40px" }}
           >
             نعمل على شراكات مع أقوى الجيمات في المنطقة لتوفير اشتراك الجيم
-            ضمن باقاتنا. الإعلان الرسمي يوم الافتتاح 27 رمضان.
+            ضمن باقاتنا. الإعلان الرسمي قريباً.
           </p>
 
           {/* Blurred placeholder logos */}

@@ -1,190 +1,186 @@
 "use client";
 import React from "react";
 
+/* ═══════════════════════════════════════════
+   سحب مكملات Volt — خاص بالجلسات الفردية
+   الجوائز: بروتين أو كرياتين أو كارب لـ 3 فائزين
+   + فائز بتجربة B•Stance لمدة شهر
+   ═══════════════════════════════════════════ */
+
+const prizes = [
+  {
+    rank: "الجائزة الأولى",
+    icon: "🥇",
+    title: "تجربة B•Stance كاملة — شهر مجاناً",
+    desc: "جلسات Recovery + تقييم عضلي + بروتوكول أداء مخصص + متابعة استشفاء لمدة 30 يوماً.",
+    color: "var(--teal-light)",
+    bg: "rgba(61,216,200,0.06)",
+    border: "rgba(61,216,200,0.2)",
+    featured: true,
+  },
+  {
+    rank: "الجائزة الثانية",
+    icon: "🥈",
+    title: "بروتين من إيڤولڤ (Evolve)",
+    desc: "مكمل بروتين رياضي عالي الجودة من Evolve — وقود حيوي لبناء العضلة وتسريع الاستشفاء.",
+    color: "var(--gold)",
+    bg: "rgba(255,179,71,0.06)",
+    border: "rgba(255,179,71,0.2)",
+    featured: false,
+  },
+  {
+    rank: "الجائزة الثالثة",
+    icon: "🥉",
+    title: "كرياتين 30 سرڤ من بيور جانيك (Pure Ganic)",
+    desc: "كرياتين لرفع القوة والأداء — 30 جرعة من Pure Ganic لتعزيز الطاقة والتحمل.",
+    color: "var(--gold)",
+    bg: "rgba(255,179,71,0.06)",
+    border: "rgba(255,179,71,0.2)",
+    featured: false,
+  },
+  {
+    rank: "الجائزة الرابعة",
+    icon: "🏅",
+    title: "كارب من تراكتور (Tractor)",
+    desc: "مكمل كارب لتعويض الطاقة وتسريع الاستشفاء بعد التمرين — من Tractor.",
+    color: "var(--gold)",
+    bg: "rgba(255,179,71,0.06)",
+    border: "rgba(255,179,71,0.2)",
+    featured: false,
+  },
+];
+
+const rules = [
+  { icon: "✅", text: "احجز أي خدمة فردية (ريكافري / حجامة / تغذية / تدريب) وادخل السحب تلقائياً" },
+  { icon: "💡", text: "كل جلسة إضافية = تذكرة إضافية — كلما حجزت أكثر، زادت فرصتك" },
+  { icon: "📅", text: "الإعلان عن الفائزين الـ 4 عبر صفحاتنا الرسمية يوم الافتتاح" },
+];
+
 export default function RaffleHookSection() {
   return (
     <>
       {/* ═══════ RAFFLE HOOK ═══════ */}
       <section className="hook-section" id="raffle-hook">
-        <div
-          style={{ textAlign: "center", marginBottom: "44px" }}
-          className="reveal"
-        >
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "44px" }} className="reveal">
           <div className="s-label" style={{ justifyContent: "center" }}>
-            🏆 &nbsp;سحب الافتتاح الكبير — 16 حتى 26 رمضان
+            🎁 &nbsp;سحب الافتتاح — بالشراكة مع Volt
           </div>
           <h2
             className="s-title"
             style={{ fontSize: "clamp(1.8rem, 3.8vw, 2.6rem)" }}
           >
-            كل حجز = تذكرة سحب تلقائية
+            4 جوائز حقيقية لـ 4 رياضيين — على كل جلسة فردية
           </h2>
           <p
             className="s-sub"
-            style={{
-              margin: "0 auto",
-              textAlign: "center",
-              maxWidth: "620px",
-            }}
+            style={{ margin: "0 auto", textAlign: "center", maxWidth: "580px" }}
           >
-            نوع الجائزة يتحدد حسب الخدمة التي تحجزها —{" "}
-            <strong style={{ color: "var(--gold)" }}>مكملات Volt</strong>{" "}
-            للخدمات الفردية، و
-            <strong style={{ color: "var(--teal-light)" }}>
-              {" "}
-              ترقية الاشتراك
-            </strong>{" "}
-            لأصحاب الباقات.
+            كل ما عليك: احجز أي{" "}
+            <strong style={{ color: "var(--gold)" }}>جلسة فردية</strong> وتدخل السحب تلقائياً.
+            {" "}الجوائز من{" "}
+            <strong style={{ color: "var(--teal-light)" }}>Volt Supplements</strong>{" "}.
           </p>
         </div>
 
-        {/* TWO COLUMN LOGIC */}
-        <div className="raffle-logic reveal">
-          {/* Col 1: Individual = Supplements */}
-          <div className="raffle-col">
-            <div className="raffle-col-header">
-              <div className="rcol-badge supplements">
-                🎁 مكملات Volt (بروتين أو كارب أو كرياتين)
-              </div>
-              <div className="rcol-title">الخدمات الفردية</div>
-            </div>
-            <div className="raffle-tier">
-              <div className="rt-icon-sm gold-bg">🥗</div>
-              <div>
-                <div className="rt-service">نظام تغذية / جدول تمرين</div>
-                <div className="rt-prize-label">
-                  الجائزة:{" "}
-                  <strong>مكملات Volt</strong>
-                </div>
-              </div>
-            </div>
-            <div className="raffle-tier">
-              <div className="rt-icon-sm gold-bg">💆</div>
-              <div>
-                <div className="rt-service">جلسة ريكافري (عادية أو كاملة)</div>
-                <div className="rt-prize-label">
-                  الجائزة:{" "}
-                  <strong>مكملات Volt</strong>
-                </div>
-              </div>
-            </div>
-            <div className="raffle-tier">
-              <div className="rt-icon-sm gold-bg">🔴</div>
-              <div>
-                <div className="rt-service">جلسات الحجامة (بكل أنواعها)</div>
-                <div className="rt-prize-label">
-                  الجائزة:{" "}
-                  <strong>مكملات Volt</strong>
-                </div>
-              </div>
-            </div>
-            <div className="raffle-note">
-              💡 الخدمات الفردية تدخلك سحب المكملات — مكافأة حقيقية لأي
-              رياضي يبحث عن بروتين أو كرياتين بجودة عالية.
-            </div>
-          </div>
-
-          {/* Col 2: Packages = Upgrade */}
-          <div
-            className="raffle-col"
-            style={{
-              borderColor: "rgba(61, 216, 200, 0.25)",
-              background: "rgba(61, 216, 200, 0.03)",
-            }}
-          >
-            <div className="raffle-col-header">
-              <div className="rcol-badge upgrade">👑 سحب ترقية الاشتراك</div>
-              <div className="rcol-title">باقات النخبة حصراً</div>
-            </div>
-            <div className="raffle-tier vip-tier">
-              <div className="rt-icon-sm teal-bg">👑</div>
-              <div>
-                <div className="rt-service">الباقة الشهرية — 600 ج.م</div>
-                <div className="rt-prize-label teal">
-                  الجائزة:{" "}
-                  <strong>ترقية من شهر → 3 شهور بنفس السعر المدفوع</strong>
-                </div>
-              </div>
-            </div>
-            <div className="raffle-tier vip-tier">
-              <div className="rt-icon-sm teal-bg">💎</div>
-              <div>
-                <div className="rt-service">
-                  الباقة الربع سنوية — 1,800 ج.م
-                </div>
-                <div className="rt-prize-label teal">
-                  الجائزة:{" "}
-                  <strong>ترقية من 3 شهور → 6 شهور بنفس السعر المدفوع</strong>
-                </div>
-              </div>
-            </div>
-            <div className="raffle-tier vip-tier">
-              <div className="rt-icon-sm teal-bg">🏅</div>
-              <div>
-                <div className="rt-service">الباقة النصف سنوية أو السنوية</div>
-                <div className="rt-prize-label teal">
-                  الجائزة:{" "}
-                  <strong>
-                    باقة مكملات Volt كاملة (بروتين + كارب + كرياتين)
-                  </strong>
-                </div>
-              </div>
-            </div>
+        {/* Prize Cards */}
+        <div
+          className="reveal"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "16px",
+            maxWidth: "1100px",
+            margin: "0 auto 36px",
+          }}
+        >
+          {prizes.map((p, i) => (
             <div
-              className="raffle-note"
+              key={i}
               style={{
-                background: "rgba(61, 216, 200, 0.07)",
-                borderColor: "rgba(61, 216, 200, 0.2)",
-                color: "rgba(255, 255, 255, 0.62)",
+                background: p.bg,
+                border: `1px solid ${p.border}`,
+                borderRadius: "18px",
+                padding: "24px 20px",
+                position: "relative",
+                ...(p.featured
+                  ? { boxShadow: "0 0 32px rgba(61,216,200,0.12)" }
+                  : {}),
               }}
             >
-              💎 مثال: اشتركت بالباقة الشهرية وفزت بالسحب — بتاخد 3 شهور متابعة كاملة
-              بنفس المبلغ اللي دفعته. ترقية حقيقية بدون أي تكلفة إضافية.
+              {p.featured && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-12px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    background: "linear-gradient(135deg, var(--teal-mid), var(--teal-light))",
+                    color: "var(--navy, #0d1b4b)",
+                    fontSize: "0.68rem",
+                    fontWeight: 900,
+                    padding: "4px 16px",
+                    borderRadius: "50px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  ⭐ الجائزة الكبرى
+                </div>
+              )}
+              <div style={{ fontSize: "2.2rem", marginBottom: "10px" }}>{p.icon}</div>
+              <div
+                style={{
+                  fontSize: "0.68rem",
+                  fontWeight: 800,
+                  color: p.color,
+                  letterSpacing: "1.5px",
+                  textTransform: "uppercase",
+                  marginBottom: "8px",
+                }}
+              >
+                {p.rank}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Tajawal', sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 800,
+                  marginBottom: "8px",
+                  color: "#fff",
+                }}
+              >
+                {p.title}
+              </div>
+              <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
+                {p.desc}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Rules */}
-        <div
-          className="rules-grid reveal"
-          style={{ marginTop: "28px" }}
-        >
-          <div className="rule-card">
-            <div className="rule-ico">✅</div>
-            <span>احجز أي خدمة أو باقة من 16 لـ 26 رمضان وادخل السحب تلقائياً</span>
-          </div>
-          <div className="rule-card">
-            <div className="rule-ico">📅</div>
-            <span>السحب مفتوح 10 أيام فقط — النتائج تُعلَن 27 رمضان يوم الافتتاح</span>
-          </div>
-          <div className="rule-card">
-            <div className="rule-ico">💡</div>
-            <span>كل حجز إضافي = فرصة إضافية — كلما حجزت أكثر، فرصتك أعلى</span>
-          </div>
-          <div className="rule-card">
-            <div className="rule-ico">🎁</div>
-            <span>حتى لو ما فزتش — كل المشاركين يحصلون على كوبون خصم حصري بعد السحب</span>
-          </div>
-          <div className="rule-card">
-            <div className="rule-ico">🎁</div>
-            <span>هات صاحبك — فرصتك تتضاعف</span>
-            <div className="rbs-text">أحضر صديقاً معك واحصل على تذكرتين في السحب بدلاً من واحدة!</div>
-          </div>
+        <div className="rules-grid reveal" style={{ marginTop: "8px" }}>
+          {rules.map((r, i) => (
+            <div key={i} className="rule-card">
+              <div className="rule-ico">{r.icon}</div>
+              <span>{r.text}</span>
+            </div>
+          ))}
         </div>
 
+        {/* CTA */}
         <div className="section-cta-bar">
-          <a href="#booking" className="btn-primary">
-            📲 احجز الآن وادخل السحب مجاناً ←
+          <a href="#services" className="btn-primary">
+            🎯 تصفّح الجلسات الفردية وادخل السحب ←
           </a>
-          <p>الحجز لا يلزمك بأي شيء — فريقنا سيتواصل معك لترتيب كل شيء</p>
+          <p>السحب مجاني — يكفي أن تحجز جلسة واحدة</p>
 
           {/* Bridge to Services */}
           <div className="raffle-to-services-bridge reveal">
-            <span className="rtb-text">
-              جاهز تشوف الخدمات والأسعار؟
-            </span>
+            <span className="rtb-text">تريد معرفة الجلسات المشاركة؟</span>
             <a href="#services" className="rtb-link">
-              تصفّح الخدمات الفردية والباقات
+              شوف كل الخدمات الفردية
               <svg
                 width="13"
                 height="13"

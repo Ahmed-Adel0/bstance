@@ -26,19 +26,23 @@ const FacebookIcon = () => (
   </svg>
 );
 
+/* ════════════════════════════════════════
+   بيانات الفريق — شهادات + نتائج
+   ════════════════════════════════════════ */
 const teamMembers = [
   {
     id: 3,
     name: "Dr. Ahmed Fadl",
-    title: "Certified Sports Nutritionist",
+    title: "Sports Nutritionist",
+    role: "Fuel — التغذية الدقيقة",
     image: "/imgs/fadl.jpeg",
     imagePosition: "center top",
     experience: "5+",
     experienceLabel: "سنوات خبرة",
-    bio: "أخصائي تغذية معتمد من وحدة الطب الرياضي بوزارة الشباب والرياضة، حاصل على دبلوم في تغذية الرياضيين وماجستير من جامعة السويس، متخصص في إعداد وتصميم برامج التغذية للرياضيين.",
+    bio: "أخصائي تغذية رياضية معتمد من وحدة الطب الرياضي بوزارة الشباب والرياضة، حاصل على ماجستير من جامعة السويس ودبلوم في تغذية الرياضيين. أعدّ برامج غذائية ساهمت في وصول رياضيين لمستويات تنافسية عالية — بما فيها لاعبات وصلن للمنتخب الوطني وبطولات التايكوندو.",
     tags: [
       { icon: "🥗", label: "Sports Nutrition" },
-      { icon: "📋", label: "Diet Planning" },
+      { icon: "📊", label: "Performance Fueling" },
       { icon: "🏅", label: "Sports Medicine" },
     ],
     social: [
@@ -52,16 +56,17 @@ const teamMembers = [
     id: 1,
     name: "Cap Ahmed Arafat",
     nickname: "عفروتو",
-    title: "Personal Trainer & Performance Coach",
+    title: "Performance Coach",
+    role: "Train — التدريب الذكي",
     image: "/imgs/arafat.jpeg",
     imagePosition: "center top",
     experience: "3+",
     experienceLabel: "سنوات خبرة",
-    bio: "كوتش معتمد دولياً في التدريب الشخصي وتطوير الأداء الرياضي، يصمم برامج تدريبية مخصصة ومتكاملة تناسب مختلف المستويات والأهداف — من المبتدئ حتى المحترف.",
+    bio: "كوتش معتمد دولياً في التدريب الشخصي وتطوير الأداء الرياضي. بنى برامج تدريبية حققت تحولات مرئية لعشرات المتدربين في فترات قياسية — من المبتدئ حتى المحترف.",
     tags: [
-      { icon: "💪", label: "Personal Training" },
-      { icon: "⚡", label: "Performance" },
-      { icon: "📊", label: "Body Comp" },
+      { icon: "💪", label: "Strength & Body Comp" },
+      { icon: "⚡", label: "Performance Boost" },
+      { icon: "📋", label: "Customized Programs" },
     ],
     social: [
       { platform: "facebook", url: "https://www.facebook.com/ahmed.arafat.5209?mibextid=wwXIfr&rdid=QOdMgw7c6ZEh0iz5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AYCZAhimi%2F%3Fmibextid%3DwwXIfr#", label: "Facebook" },
@@ -76,15 +81,16 @@ const teamMembers = [
     id: 4,
     name: "Cap Ahmed Al Sakkar",
     title: "Strength & Conditioning Coach",
+    role: "Train — القوة والتكييف",
     image: "/imgs/sakar.jpg",
     imagePosition: "center top",
     experience: "5+",
     experienceLabel: "سنوات خبرة",
-    bio: "كوتش متخصص في تدريب القوة والتكييف البدني بخبرة ميدانية متعددة السنوات، يبني برامج تدريبية احترافية تُحسّن القوة والقدرة على التحمّل للرياضيين على جميع المستويات.",
+    bio: "كوتش متخصص في تدريب القوة والتكييف البدني بخبرة ميدانية تتجاوز 5 سنوات، يبني برامج تدريبية احترافية تُحسّن القوة والقدرة على التحمّل للرياضيين على جميع المستويات — من المبتدئ حتى المحترف.",
     tags: [
-      { icon: "🏋️", label: "Strength" },
-      { icon: "�", label: "Conditioning" },
-      { icon: "�", label: "Athletics" },
+      { icon: "🏋️", label: "Strength Training" },
+      { icon: "🏃", label: "Conditioning" },
+      { icon: "🎯", label: "Athletic Performance" },
     ],
     social: [
       { platform: "facebook", url: "https://www.facebook.com/ahmed.alsakar.906", label: "Facebook" },
@@ -98,16 +104,17 @@ const teamMembers = [
   {
     id: 2,
     name: "Cap Ahmed El Nahhas",
-    title: "General Manager & Recovery Specialist",
+    title: "Recovery Specialist & GM",
+    role: "Recover — الاستشفاء المتقدم",
     image: "/imgs/ahmedadel.png",
     imagePosition: "center top",
     experience: "2+",
     experienceLabel: "سنوات خبرة",
-    bio: "أخصائي تأهيل بدني وحركي، الحجامة، الإبر الصينية، والمساج الرياضي، يركز على تسريع التعافي وتحسين الأداء والتوازن الجسدي.",
+    bio: "أخصائي تأهيل بدني وحركي، أخصائي الحجامة والمساج الرياضي العميق والفوطة النارية. أنجز أكثر من 200 جلسة ريكافري متخصصة — يركز على تسريع التعافي، منع الإصابات، وتحسين جاهزية الجسم.",
     tags: [
-      { icon: "🫁", label: "Sports Massage" },
+      { icon: "💆", label: "Deep Sports Massage" },
       { icon: "🏺", label: "Cupping Therapy" },
-      { icon: "🦵", label: "Movement Rehab" },
+      { icon: "⚡", label: "Rapid Recovery" },
     ],
     social: [
       { platform: "facebook", url: "https://www.facebook.com/ahmed.ibn.adell", label: "Facebook" },
@@ -140,7 +147,8 @@ export default function TeamSection() {
           </div>
           <h2 className="s-title team-title">خبرات متنوعة لتحقيق أفضل أداء</h2>
           <p className="s-sub team-sub">
-            فريقنا يجمع بين الإدارة الاحترافية، التدريب الشخصي والجيم، والتغذية الرياضية — كل تخصص لخدمة هدف واحد: تحسين أدائك وصحتك
+            فريقنا يجمع بين الخبرة المهنية والنتائج الميدانية — كل متخصص مسؤول عن بُعد من أبعاد{" "}
+            <strong style={{ color: "var(--teal-light)" }}>Train • Fuel • Recover.</strong>
           </p>
         </div>
 

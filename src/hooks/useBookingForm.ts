@@ -41,7 +41,7 @@ export const useBookingForm = () => {
     if (validate()) {
       // In a real scenario, you might want to get the text of the selected option
       // For simplicity here, we'll just use the value or you could pass a mapping
-      const msg = `🎯 طلب حجز — عرض سحب الافتتاح الكبير\n\nالاسم: ${formData.name}\nالواتساب: ${formData.phone}\nالخدمة المطلوبة: ${formData.goal}\n\n— مرسلة من صفحة سحب B•Stance الافتتاح الكبير —`;
+      const msg = `🎯 طلب حجز — B•Stance\n\nالاسم: ${formData.name}\nالواتساب: ${formData.phone}\nالخدمة المطلوبة: ${formData.goal}\n\n— مرسلة من موقع B•Stance —`;
       window.open(`https://wa.me/201279266345?text=${encodeURIComponent(msg)}`, '_blank');
       setIsSubmitted(true);
     } else {

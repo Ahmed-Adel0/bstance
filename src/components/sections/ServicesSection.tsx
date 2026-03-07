@@ -97,16 +97,17 @@ export default function ServicesSection() {
           </div>
           <h2 className="s-title">الأسعار والتفاصيل — احجز ما يناسبك</h2>
           <p className="s-sub" style={{ margin: "0 auto", textAlign: "center" }}>
-            كل خدمة تدخلك سحب مكملات Volt تلقائياً 🎁 — اختر خدمتك وانطلق.
+            كل جلسة فردية تدخلك سحب{" "}
+            <strong style={{ color: "var(--gold)" }}>مكملات Volt </strong>تلقائياً 🎁 — بروتين أو كرياتين أو كارب.
           </p>
-          {/* Bridge: توجيه لقسم آلية السحب */}
+          <p style={{ margin: "0 auto", textAlign: "center" }}>أو تجربة B.Stance لمدة شهر مجانا</p>
           <a
             href="#raffle-hook"
             className="svc-raffle-bridge"
             aria-label="اعرف المزيد عن آلية السحب"
           >
-            <span>📝</span>
-            كيف يعمل السحب؟ اضغط هنا لمعرفة آلية السحب والجوائز
+            <span>🎯</span>
+            شوف تفاصيل الجوائز والسحب
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -121,7 +122,7 @@ export default function ServicesSection() {
               <div>
                 <div className="svc-block-title">ريكافري · تدريب · تغذية</div>
                 <div className="svc-block-sub">
-                  كل خدمة = تذكرة سحب مكملات Volt مجانية
+                  🎁 كل جلسة = تذكرة سحب مكملات Volt
                 </div>
               </div>
             </div>
@@ -147,7 +148,6 @@ export default function ServicesSection() {
                       </div>
                     </div>
                   </div>
-                  <div className="svc-raffle-pill">🎁 سحب Volt</div>
                 </div>
               ))}
             </div>
@@ -186,7 +186,6 @@ export default function ServicesSection() {
                       </div>
                     </div>
                   </div>
-                  <div className="svc-raffle-pill">🎁 سحب Volt</div>
                 </div>
               ))}
             </div>
@@ -212,7 +211,6 @@ export default function ServicesSection() {
                   </div>
                 </div>
               </div>
-              <div className="svc-raffle-pill">🎁 سحب Volt</div>
             </div>
 
             {/* Add-ons */}
@@ -232,26 +230,11 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Teams banner */}
-        <div className="svc-teams-banner reveal">
-          <span className="svc-teams-icon">🏆</span>
-          <div>
-            <div className="svc-teams-title">
-              ريكافري الفرق الرياضية — Recovery for Teams
-            </div>
-            <div className="svc-teams-desc">
-              بروتوكولات الريكافري متاحة للفرق الرياضية قبل المنافسات وخلالها
-              وبعدها — تواصل معنا لترتيب خاص.
-            </div>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="section-cta-bar">
           <a href="#booking" className="btn-primary">
-            📲 احجز خدمتك وادخل سحب Volt ←
+            📲 احجز جلستك وادخل السحب الآن ←
           </a>
-          <p>أسعار الإطلاق سارية خلال فترة السحب فقط — لا تفوّتها</p>
         </div>
       </section>
     </>
