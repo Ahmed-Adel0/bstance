@@ -106,10 +106,10 @@ export default function BookingFormSection() {
                 </option>
                 <optgroup label="— الخدمات الفردية (سحب مكملات Volt) —">
                   <option value="جلسة ريكافري عادية">
-                    جلسة ريكافري عادية — 400 ج.م
+                    جلسة ريكافري عادية — 200 ج.م
                   </option>
                   <option value="جلسة ريكافري كاملة">
-                    جلسة ريكافري كاملة — 600 ج.م
+                    جلسة ريكافري كاملة — 500 ج.م
                   </option>
                   <option value="حجامة الظهر">حجامة الظهر — 250 ج.م</option>
                   <option value="حجامة الرقبة">حجامة الرقبة — 150 ج.م</option>
@@ -119,9 +119,9 @@ export default function BookingFormSection() {
                   <option value="حجامة شاملة">
                     حجامة شاملة (ظهر + رقبة + قدمين) — 400 ج.م
                   </option>
-                  <option value="نظام تغذية">نظام تغذية مخصص — 400 ج.م</option>
+                  <option value="نظام تغذية">نظام تغذية مخصص — 300 ج.م</option>
                   <option value="جدول تمرين">
-                    جدول تمرين مخصص — 400 ج.م
+                    جدول تمرين مخصص — 300 ج.م
                   </option>
                 </optgroup>
                 <optgroup label="— باقات النخبة (سحب ترقية مجانية) —">
