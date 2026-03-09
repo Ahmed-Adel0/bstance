@@ -125,6 +125,29 @@ const teamMembers = [
     accentColor: "gold",
     delay: "rd4",
   },
+  {
+    id: 5,
+    name: "Dr. Ahmed Malla",
+    title: "Nutrition & Combat Sports Specialist",
+    role: "Train • Fuel — أداء وتغذية رياضية",
+    image: "/imgs/mala.png", // Placeholder
+    imagePosition: "center top",
+    experience: "5+",
+    experienceLabel: "سنوات خبرة",
+    bio: "متخصص في تدريب وتغذية الرياضيين الهواة والمحترفين، وخبير في تدريب الكيك بوكسنج والملاكمة للأطفال والكبار. باحث ماجستير في علوم الصحة والتغذية الرياضية، وحاصل على ماجستير في الإصابات الرياضية من جامعة طنطا.",
+    tags: [
+      { icon: "🥊", label: "Kickboxing & Boxing" },
+      { icon: "🥗", label: "Sports Nutrition" },
+      { icon: "🏥", label: "Injury Prevention" },
+    ],
+    social: [
+      // { platform: "whatsapp",  url: "https://wa.me/201279266345",             label: "WhatsApp" },
+      { platform: "facebook", url: "https://www.facebook.com/ahmd.almla.192244/", label: "Facebook" },
+      { platform: "instagram", url: "https://www.instagram.com/mall_a00?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
+    ],
+    accentColor: "teal",
+    delay: "rd5",
+  },
 ];
 
 const SocialIcon = ({ platform }: { platform: string }) => {
