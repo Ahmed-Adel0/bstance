@@ -19,11 +19,11 @@ const packages = [
     name: "الباقة الشهرية",
     duration: "30 يوم",
     tagline: "شوف الفرق بنفسك",
-    originalPrice: "1,500",
-    price: "800",
+    originalPrice: "1,700",
+    price: "1000",
     unit: "ج.م / شهر",
-    saveBadge: "وفّر 700 ج.م — خصم 50% 🔥",
-    protocol: ["Training", "Fuel"],
+    saveBadge: "وفّر 700 ج.م — خصم 40% 🔥",
+    protocol: ["Training", "Nutrition", "Recovery"],
     features: [
       "برنامج تدريب مخصص بالفيديو",
       "نظام تغذية علمي متكامل",
@@ -49,7 +49,7 @@ const packages = [
     price: "2,000",
     unit: "ج.م",
     saveBadge: "وفّر 1,500 ج.م 🎉",
-    protocol: ["Training", "Fuel", "Recovery"],
+    protocol: ["Training", "Nutrition", "Recovery"],
     features: [
       "كل مميزات الشهرية × 3 أشهر متواصلة",
       "جلسة ريكافري شهرية (3 جلسات)",
@@ -76,7 +76,7 @@ const packages = [
     price: "3,000",
     unit: "ج.م",
     saveBadge: "وفّر 1,500 ج.م 🔥",
-    protocol: ["Training", "Fuel", "Recovery"],
+    protocol: ["Training", "Nutrition", "Recovery"],
     features: [
       "متابعة مكثفة 6 أشهر متواصلة",
       "جلسة ريكافري شهرية (6 جلسات)",
@@ -103,7 +103,7 @@ const packages = [
     price: "6,000",
     unit: "ج.م",
     saveBadge: "وفّر 3,000 ج.م 🏅",
-    protocol: ["Training", "Fuel", "Recovery"],
+    protocol: ["Training", "Nutrition", "Recovery"],
     features: [
       "تحول جسدي كامل طوال 12 شهراً",
       "جلسة ريكافري شهرية (12 جلسة)",
@@ -120,17 +120,17 @@ const packages = [
 /* ── Protocol Pills ── */
 const protocolColors: Record<string, string> = {
   Training: "rgba(61,216,200,0.15)",
-  Fuel: "rgba(255,179,71,0.15)",
+  Nutrition: "rgba(255,179,71,0.15)",
   Recovery: "rgba(255,107,107,0.15)",
 };
 const protocolTextColors: Record<string, string> = {
   Training: "#3dd8c8",
-  Fuel: "#ffb347",
+  Nutrition: "#ffb347",
   Recovery: "#ff9090",
 };
 const protocolIcons: Record<string, string> = {
   Training: "💪",
-  Fuel: "🥗",
+  Nutrition: "🥗",
   Recovery: "💆",
 };
 
@@ -155,7 +155,7 @@ export default function PackagesSection() {
             كل باقة مصممة لتناسب مرحلتك الحالية — ويمكنك الترقية في أي وقت.
             <br />
             <span style={{ color: "var(--teal-light)", fontWeight: 700 }}>
-              Train • Fuel • Recover
+              Train • Nutrition • Recovery
             </span>{" "}
             — المنظومة الكاملة تبدأ بخطوة واحدة.
           </p>

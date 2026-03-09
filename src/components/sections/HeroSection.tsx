@@ -76,7 +76,7 @@ export default function HeroSection() {
           </div>
           <div className="stat-div"></div>
           <div className="stat-item">
-            <span className="stat-num" data-t="4" data-s=" متخصصين">
+            <span className="stat-num" data-t="5" data-s=" متخصصين">
               0
             </span>
             <div className="stat-lbl">في التغذية والتدريب والريكافري</div>
