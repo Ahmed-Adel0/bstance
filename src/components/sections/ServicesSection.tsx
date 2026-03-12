@@ -1,226 +1,146 @@
 "use client";
 import React from "react";
 
-const recoveryServices = [
+const mainServices = [
   {
-    icon: "🥗",
-    name: "نظام تغذية مخصص",
-    desc: "خطة غذائية مصممة خصيصاً لجسمك وأهدافك وجدول تمرينك — تغذية علمية لا حرمان.",
-    price: "300",
-    originalPrice: "700",
+    icon: "🏋️",
+    name: "برامج تدريبية احترافية",
+    desc: "برامج تدريب فتنس مصممة خصيصاً للرياضيين لتحسين القوة والسرعة وتقليل الإصابات، مبنية على أحدث الأبحاث وتحت إشراف خبراء حاصلين على أعلى الاعتمادات العالمية والماجستير.",
+    color: "teal",
     delay: "",
   },
   {
-    icon: "🏋️",
-    name: "جدول تمرين مخصص",
-    desc: "برنامج تمرين احترافي مبني على مستواك وهدفك — يرفع أداءك ويحميك من الإصابات.",
-    price: "300",
-    originalPrice: "700",
+    icon: "🥗",
+    name: "تغذية رياضية متخصصة",
+    desc: "أنظمة غذائية مخصصة لكل لاعب حسب رياضته لتحسين الأداء وتسريع التعافي، مبنية على بيانات حقيقية تحت إشراف أخصائيين معتمدين من وحدة الطب الرياضي بوزارة الشباب.",
+    color: "gold",
     delay: "rd1",
   },
   {
     icon: "💆",
-    name: "جلسة ريكافري عادية",
-    desc: "مساج عميق متخصص + Massage Gun  فوطة نارية + لتخفيف الألم وإعادة نشاط العضلات فوراً بعد التمرين.",
-    price: "200",
-    originalPrice: "700",
-    delay: "rd2",
-  },
-  {
-    icon: "🌿",
-    name: "جلسة ريكافري كاملة",
-    desc: "مساج رياضي عميق + أدوات متخصصة + Massage Gun + فوطة نارية + حجامة — استعادة كاملة للجسم.",
-    price: "500",
-    originalPrice: "1,000",
-    delay: "rd3",
-    highlight: true,
-  },
-];
-
-const hijamaServices = [
-  {
-    icon: "🔴",
-    name: "حجامة الرقبة",
-    desc: "تخفيف آلام الرقبة والصداع وتوتر الكتفين — تنشيط الدورة الدموية وتجديد الطاقة.",
-    price: "150",
-    originalPrice: null,
-    delay: "rd1",
-  },
-  {
-    icon: "🔴",
-    name: "حجامة الظهر",
-    desc: "علاج الآلام المزمنة وتعزيز مرونة الظهر — الخيار الأول للرياضيين بعد الإجهاد.",
-    price: "250",
-    originalPrice: "400",
-    delay: "",
-  },
-  {
-    icon: "🔴",
-    name: "حجامة القدمين",
-    desc: "تنشيط الدورة الدموية وتخفيف إجهاد الأطراف — استرخاء عميق للقدمين.",
-    price: "250",
-    originalPrice: "400",
+    name: "استشفاء رياضي متكامل",
+    desc: "جلسات استشفاء وتقنيات متقدمة نادراً ما تجدها، مخصصة حسب البرنامج التدريبي لكل لاعب لتسريع التعافي وتقليل الإجهاد العضلي والوقاية الفعالة من الإصابات.",
+    color: "blue",
     delay: "rd2",
   },
 ];
 
-const addons = [
-  {
-    icon: "🔥",
-    name: "فوطة نارية",
-    desc: "حرارة علاجية عميقة تُرخّي العضلات وتسرّع الاستشفاء.",
-    price: "100",
-  },
-  {
-    icon: "⭕",
-    name: "حجامة جافة",
-    desc: "شفط فراغي بدون شروط — لتنشيط العضلات وتخفيف التوتر.",
-    price: "50",
-  },
-  {
-    icon: "🕯️",
-    name: "حجامة نارية",
-    desc: "حرارة علاجية عميقة للعضلات المجهدة والتشنجات المزمنة.",
-    price: "100",
-  },
+const audience = [
+  { icon: "🏆", text: "الأبطال والمحترفون الساعون لكسر أرقامهم وصدارة الترتيب" },
+  { icon: "🎖️", text: "كل رياضي يبحث عن التطور المستمر وحماية مستقبله الرياضي من الإصابات" },
+  { icon: "⭐", text: "الأكاديميات الرياضية والناشئين لبناء أساس بدني وصحي سليم" },
+  { icon: "🔥", text: "مرتادو الصالات الرياضية والمهتمون بالفتنس لنتائج حقيقية وجسم مثالي" },
 ];
 
 export default function ServicesSection() {
   return (
     <>
-      {/* ═══════ INDIVIDUAL SERVICES ═══════ */}
       <section className="section alt" id="services">
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+        {/* HEADER: Combined Why Us and Services */}
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <div className="s-label" style={{ justifyContent: "center" }}>
-            الخدمات الفردية
+            لماذا B•Stance وماذا نقدم؟
           </div>
-          <h2 className="s-title">الأسعار والتفاصيل — احجز ما يناسبك</h2>
-          <p className="s-sub" style={{ margin: "0 auto", textAlign: "center" }}>
-            استعد قوتك مع جلساتنا المتخصصة والمصممة خصيصاً لتلبية احتياجاتك الرياضية.
+          <h2 className="s-title">منظومة متكاملة تحت إشراف متخصصين معتمدين</h2>
+          <p className="s-sub" style={{ margin: "0 auto", textAlign: "center", maxWidth: "780px" }}>
+            نقف بجانبك بفريق علمي متكامل يجمع بين التدريب البدني، التغذية الرياضية، والاستشفاء العضلي. نحن لا نقدم خدمات عشوائية، بل نوفر منظومة متناغمة تضمن تحويل كل قطرة عرق إلى نتيجة حقيقية وأداء فارق.
           </p>
         </div>
 
-        <div className="svc-layout">
-          {/* ── RECOVERY & TRAINING ── */}
-          <div className="svc-block">
-            <div className="svc-block-header svc-block-header--teal">
-              <span className="svc-block-icon">💆</span>
-              <div>
-                <div className="svc-block-title">ريكافري · تدريب · تغذية</div>
-                <div className="svc-block-sub">
-                  تغذية علمية · استشفاء عضلي · أداء رياضي
-                </div>
+        {/* TARGET AUDIENCE */}
+        <div className="why-audience reveal mb-64" style={{ marginBottom: "64px" }}>
+          <div className="why-audience-title"> لمن صُممت هذه المنظومة؟ </div>
+          <div className="why-audience-list">
+            {audience.map((a, i) => (
+              <div key={i} className="why-audience-item">
+                <span className="why-audience-icon">{a.icon}</span>
+                <span className="why-audience-text">{a.text}</span>
               </div>
-            </div>
-
-            <div className="svc-cards">
-              {recoveryServices.map((s, i) => (
-                <div
-                  key={i}
-                  className={`svc-card reveal ${s.delay} ${s.highlight ? "svc-card--highlight" : ""}`}
-                >
-                  <div className="svc-card-left">
-                    <div className="svc-card-icon">{s.icon}</div>
-                    <div className="svc-card-body">
-                      <div className="svc-card-name">{s.name}</div>
-                      <div className="svc-card-desc">{s.desc}</div>
-                      <div className="svc-card-prices">
-                        <span className="svc-card-price">{s.price} ج.م</span>
-                        {s.originalPrice && (
-                          <span className="svc-card-orig">
-                            {s.originalPrice} ج.م
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ── HIJAMA ── */}
-          <div className="svc-block">
-            <div className="svc-block-header svc-block-header--red">
-              <span className="svc-block-icon">🔴</span>
-              <div>
-                <div className="svc-block-title">جلسات الحجامة التشريطية</div>
-                <div className="svc-block-sub">
-                  كاسات أحادية الاستخدام · أعلى معايير التعقيم والسلامة
-                </div>
-              </div>
-            </div>
-
-            {/* Individual hijama */}
-            <div className="svc-cards">
-              {hijamaServices.map((s, i) => (
-                <div key={i} className={`svc-card reveal ${s.delay}`}>
-                  <div className="svc-card-left">
-                    <div className="svc-card-icon svc-card-icon--red">
-                      {s.icon}
-                    </div>
-                    <div className="svc-card-body">
-                      <div className="svc-card-name">{s.name}</div>
-                      <div className="svc-card-desc">{s.desc}</div>
-                      <div className="svc-card-prices">
-                        <span className="svc-card-price">{s.price} ج.م</span>
-                        {s.originalPrice && (
-                          <span className="svc-card-orig">
-                            {s.originalPrice} ج.م
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Comprehensive hijama */}
-            <div className="svc-block-sub-header">
-              ✨ الحجامة الشاملة — أعلى قيمة بأقل تكلفة
-            </div>
-            <div className="svc-card svc-card--highlight reveal">
-              <div className="svc-card-left">
-                <div className="svc-card-icon">🌟</div>
-                <div className="svc-card-body">
-                  <div className="svc-card-name">
-                    حجامة شاملة (ظهر + رقبة + قدمين)
-                  </div>
-                  <div className="svc-card-desc">
-                    جلسة متكاملة لإعادة التوازن الكامل للجسم — توفّر أكثر من
-                    200 ج.م مقارنةً بالحجز المنفصل.
-                  </div>
-                  <div className="svc-card-prices">
-                    <span className="svc-card-price">400 ج.م</span>
-                    <span className="svc-card-orig">600 ج.م</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Add-ons */}
-            <div className="svc-block-sub-header" style={{ marginTop: "20px" }}>
-              ➕ إضافات على الجلسة
-            </div>
-            <div className="addons-grid-v2">
-              {addons.map((a, i) => (
-                <div key={i} className={`addon-card-v2 reveal rd${i + 1}`}>
-                  <div className="addon-ico-v2">{a.icon}</div>
-                  <div className="addon-name-v2">{a.name}</div>
-                  <div className="addon-desc-v2">{a.desc}</div>
-                  <div className="addon-price-v2">{a.price} ج.م</div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CORE SERVICES */}
+        <div className="svc-main-grid">
+          {mainServices.map((s, i) => (
+            <div key={i} className={`svc-main-card svc-main-card--${s.color} reveal ${s.delay}`}>
+              <div className="svc-main-icon">{s.icon}</div>
+              <h3 className="svc-main-name">{s.name}</h3>
+              <p className="svc-main-desc">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* RECOVERY SERVICES EXPLANATION */}
+        <div style={{ textAlign: "center", margin: "64px 0 40px" }}>
+          <div className="s-label" style={{ justifyContent: "center" }}>
+            خدمات الريكافري بالتفصيل
+          </div>
+          <h2 className="s-title" style={{ fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)" }}>
+            طرق وتقنيات جلسات الاستشفاء المتخصصة
+          </h2>
+          <p className="s-sub" style={{ margin: "0 auto", maxWidth: "680px" }}>
+            تختلف أدواتنا حسب درجة الإجهاد ونوع الرياضة، ولكنها جميعاً تهدف إلى إزالة التصلب وإرجاعك لكامل لياقتك. تعرف على أبرز تقنياتنا:
+          </p>
+        </div>
+
+        <div className="recovery-grid" style={{ gap: "24px" }}>
+          {/* Card 1 */}
+          <div className="recovery-card reveal">
+             <div className="recovery-card-header" style={{ marginBottom: "12px" }}>
+               <span className="recovery-card-emoji">👐</span>
+               <div>
+                 <h3 className="recovery-card-title">المساج الرياضي العميق</h3>
+               </div>
+             </div>
+             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.95rem", lineHeight: "1.8" }}>
+               نطبق تقنيات متطورة في التدليك الرياضي (Sports Massage) لتفكيك التلاصقات العضلية، تحرير حامض اللاكتيك المتصلب، وزيادة مرونة الأوتار والعضلات المتقصرة من تكرار الحركة.
+             </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="recovery-card reveal rd1">
+             <div className="recovery-card-header" style={{ marginBottom: "12px" }}>
+               <span className="recovery-card-emoji">🔴</span>
+               <div>
+                 <h3 className="recovery-card-title">الحجامة الرياضية الدقيقة</h3>
+               </div>
+             </div>
+             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.95rem", lineHeight: "1.8" }}>
+               نستخدم الحجامة المتزحلقة والجافة والنارية والتشريحية بدقة عالية لسحب السموم المتراكمة وتكثيف التدفق الدموي نحو العضلات المنهكة، مما يسرع بشكل مضاعف من التئام الألياف بعد المجهود.
+             </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="recovery-card reveal rd2">
+             <div className="recovery-card-header" style={{ marginBottom: "12px" }}>
+               <span className="recovery-card-emoji">🔥</span>
+               <div>
+                 <h3 className="recovery-card-title">العلاج الحراري (الفوطة النارية)</h3>
+               </div>
+             </div>
+             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.95rem", lineHeight: "1.8" }}>
+               تقنية مثالية للاسترخاء العميق وإخراج "التيارات الهوائية" والرطوبة المحتبسة داخل المفاصل. الحرارة المتغلغلة توسع الأوعية الدموية وتبعث إحساساً بخفة الحركة الفورية.
+             </p>
+          </div>
+
+          {/* Card 4 */}
+          <div className="recovery-card reveal rd3">
+             <div className="recovery-card-header" style={{ marginBottom: "12px" }}>
+               <span className="recovery-card-emoji">⚡</span>
+               <div>
+                 <h3 className="recovery-card-title">أجهزة الريكافري المتقدمة</h3>
+               </div>
+             </div>
+             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.95rem", lineHeight: "1.8" }}>
+               ندمج أجهزة الـ Massage Guns لضخ الدورة اللمفاوية وطرد السوائل الزائدة، مما ينعش الأطراف المتعبة في وقت قياسي جداً.
+             </p>
+          </div>
+        </div>
+
         <div className="section-cta-bar">
-          <a href="#booking" className="btn-primary">
-            📲 احجز جلستك الآن ←
+          <a href="#packages" className="btn-primary">
+            📲 تصفح باقاتنا السعرية واشترك الآن ←
           </a>
         </div>
       </section>

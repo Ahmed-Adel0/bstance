@@ -18,8 +18,7 @@ export default function Footer() {
             <div className="foot-logo-text">B•Stance</div>
           </a>
           <div className="foot-desc">
-            المقصد الرائد للأداء الرياضي النخبوي والاستشفاء البدني المتقدم —
-            نظام متكامل لإعادة تعريف توازنك وقوتك.
+            اول منظومة رياضية متكاملة في مصر
           </div>
           {/* <div className="foot-volt-area">
             <div className="foot-volt-label">OFFICIAL PARTNER</div>
@@ -98,7 +97,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div>
+        <div className="foot-col">
           <h4>روابط سريعة</h4>
           <ul className="foot-links">
 
@@ -110,7 +109,7 @@ export default function Footer() {
             <li><a href="#booking">احجز الآن 📲</a></li>
           </ul>
         </div>
-        <div>
+        <div className="foot-col">
           <h4>تواصل معنا</h4>
           <div className="foot-contact-row">
             📍<span>الجمعية الشرعية — طناح، المنصورة</span>
@@ -126,7 +125,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="foot-bottom">
-        <div className="foot-copy">© 2025 B•Stance — جميع الحقوق محفوظة</div>
+        <div className="foot-copy">© 2026 B•Stance — جميع الحقوق محفوظة</div>
         <div className="text-[0.7rem] text-white/20">
           Powered by Excellence 💪
         </div>

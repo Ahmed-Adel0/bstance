@@ -1,9 +1,6 @@
 "use client";
 import React from "react";
 
-
-
-
 export default function HeroSection() {
   return (
     <>
@@ -30,35 +27,39 @@ export default function HeroSection() {
             {/* Brand badge */}
             <div className="hero-brand">
               <div className="hero-brand-text">B•Stance</div>
-              <div className="hero-brand-divider"></div>
-              <div className="hero-brand-sub">Reset your Balance</div>
+              {/* <div className="hero-brand-divider"></div>
+              <div className="hero-brand-sub"></div> */}
             </div>
 
             {/* H1 */}
             <h1>
-              <span className="h1-top">لأن التوازن هو الأساس —</span>
+              <span className="h1-top">منظومة متكاملة</span>
               <span>
-                استعِد قوتك <br />
-                <span className="h1-accent">وانطلق بشغف</span>
+                لتطوير أداء الرياضيين <br />
+                <span className="h1-accent">وصناعة الأبطال</span>
               </span>
             </h1>
 
             {/* Sub */}
             <p className="hero-sub">
-              B•Stance — منظومة متخصصة لإدارة الأداء الرياضي.
+              إحنا أول منظومة بتقدّم خدمات رياضية متكاملة تحت إشراف متخصصين
+              معتمدين لمساعدة الرياضيين على تطوير أدائهم والوصول لأفضل مستوى
+              ممكن في رياضتهم.
               <br />
               <strong style={{ color: "rgba(255,255,255,0.85)" }}>
-                تدريب ذكي • تغذية دقيقة • استشفاء متقدم — كل شيء في مكان واحد لتصل لأقصى إمكانياتك.
+                في B•Stance نقدم منظومة متكاملة تشمل التدريب البدني، التغذية
+                الرياضية، والاستشفاء العضلي وفق برامج مدروسة ومقننة تناسب
+                احتياج كل لاعب.
               </strong>
             </p>
 
             {/* CTAs */}
             <div className="hero-btns">
-              <a href="#services" className="btn-primary">
-                اكتشف خدماتنا
+              <a href="#packages" className="btn-primary">
+                ابدأ برنامجك الآن
               </a>
-              <a href="#booking" className="btn-outline">
-                احجز جلستك الآن
+              <a href="#packages" className="btn-outline">
+               تصفح خدماتنا
               </a>
             </div>
           </div>
@@ -69,31 +70,31 @@ export default function HeroSection() {
       <div className="stats-bar">
         <div className="stats-glass reveal">
           <div className="stat-item">
-            <span className="stat-num" data-t="200" data-p="+" data-s=" جلسة">
+            <span className="stat-num" data-t="100" data-p="+" data-s="">
               0
             </span>
-            <div className="stat-lbl">جلسة ريكافري وحجامة منجزة</div>
+            <div className="stat-lbl">جلسة ريكافري مكتملة</div>
           </div>
           <div className="stat-div"></div>
           <div className="stat-item">
-            <span className="stat-num" data-t="5" data-s=" متخصصين">
+            <span className="stat-num" data-t="5" data-p="+" data-s="">
               0
             </span>
-            <div className="stat-lbl">في التغذية والتدريب والريكافري</div>
+            <div className="stat-lbl">خبير ومتخصص رياضي معتمد</div>
           </div>
           <div className="stat-div"></div>
           <div className="stat-item">
             <span className="stat-num" data-t="100" data-s="%">
               0
             </span>
-            <div className="stat-lbl">تعقيم بمعايير طبية معتمدة</div>
+            <div className="stat-lbl">برامج علمية مخصصة للرياضيين</div>
           </div>
           <div className="stat-div"></div>
           <div className="stat-item">
-            <span className="stat-num" data-t="5" data-p="+" data-s=" سنوات">
+            <span className="stat-num" data-t="10" data-p="+" data-s="">
               0
             </span>
-            <div className="stat-lbl">خبرة الفريق المتخصص</div>
+            <div className="stat-lbl">سنوات من الخبرة المتراكمة</div>
           </div>
         </div>
       </div>

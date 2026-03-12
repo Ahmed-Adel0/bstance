@@ -19,9 +19,9 @@ export const useBookingForm = () => {
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Please enter your name';
-    if (!formData.phone.trim()) newErrors.phone = 'Please enter your WhatsApp number';
-    if (!formData.goal) newErrors.goal = 'Please select a service';
+    if (!formData.name.trim()) newErrors.name = 'من فضلك اكتب اسمك';
+    if (!formData.phone.trim()) newErrors.phone = 'من فضلك اكتب رقم الواتساب';
+    if (!formData.goal) newErrors.goal = 'من فضلك اختر الخدمة';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
