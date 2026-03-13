@@ -1,5 +1,18 @@
 "use client";
 import React from "react";
+import { 
+  BarChart3, 
+  ClipboardList, 
+  Dumbbell, 
+  TrendingUp, 
+  Target, 
+  Users, 
+  Trophy,
+  CalendarCheck,
+  ArrowLeft,
+  MessageCircle,
+  Award
+} from "lucide-react";
 
 /* ════════════════════════════════════════════════
    AthleteDevelopmentSection — منهج صناعة البطل
@@ -12,7 +25,7 @@ const phases = [
     title: "التقييم والتحليل",
     subtitle: "Assessment",
     desc: "تحليل شامل لمستوى اللاعب البدني والحركي، تقييم التغذية الحالية، وتحديد نقاط القوة والضعف.",
-    icon: "📊",
+    icon: <BarChart3 size={24} />,
     color: "teal",
   },
   {
@@ -20,7 +33,7 @@ const phases = [
     title: "التخطيط المقنن",
     subtitle: "Planning",
     desc: "وضع برنامج تدريبي وتغذوي واستشفائي مخصص بناءً على بيانات التقييم وأهداف اللاعب ومتطلبات رياضته.",
-    icon: "📋",
+    icon: <ClipboardList size={24} />,
     color: "gold",
   },
   {
@@ -28,7 +41,7 @@ const phases = [
     title: "التنفيذ والمتابعة",
     subtitle: "Execution",
     desc: "تطبيق البرنامج تحت إشراف مباشر مع متابعة يومية وتعديلات مستمرة لضمان التقدم في الأداء.",
-    icon: "🏋️",
+    icon: <Dumbbell size={24} />,
     color: "teal",
   },
   {
@@ -36,26 +49,30 @@ const phases = [
     title: "التقييم الدوري والتطوير",
     subtitle: "Progress & Optimize",
     desc: "إعادة تقييم دورية للأداء وتحديث البرنامج للوصول لأعلى مستوى ممكن والحفاظ عليه طوال الموسم.",
-    icon: "📈",
+    icon: <TrendingUp size={24} />,
     color: "gold",
   },
 ];
 
 const benefits = [
-  { icon: "🎯", text: "منهجية علمية مبنية على أحدث الأبحاث" },
-  { icon: "👥", text: "فريق متكامل يعمل بتنسيق تام" },
-  { icon: "📊", text: "قياس التطور بالأرقام والبيانات" },
-  { icon: "🏆", text: "نتائج ملموسة في الأداء والمنافسات" },
+  { icon: <Target size={20} color="var(--teal-light)" />, text: "منهجية علمية مبنية على أحدث الأبحاث" },
+  { icon: <Users size={20} color="var(--gold)" />, text: "فريق متكامل يعمل بتنسيق تام" },
+  { icon: <BarChart3 size={20} color="var(--teal-light)" />, text: "قياس التطور بالأرقام والبيانات" },
+  { icon: <Trophy size={20} color="var(--gold)" />, text: "نتائج ملموسة في الأداء والمنافسات" },
 ];
 
 export default function AthleteDevelopmentSection() {
   return (
     <section className="section alt" id="athlete-dev">
       <div style={{ textAlign: "center", marginBottom: "56px" }}>
-        <div className="s-label" style={{ justifyContent: "center" }}>
+        <div className="s-label" style={{ justifyContent: "center", gap: "8px" }}>
+          <Trophy size={14} color="var(--teal-light)" />
           Athlete Development System
         </div>
-        <h2 className="s-title">منهج صناعة البطل</h2>
+        <h2 className="s-title flex items-center justify-center gap-3">
+          <Award size={32} color="var(--gold)" />
+          منهج صناعة البطل
+        </h2>
         <p
           className="s-sub"
           style={{ margin: "0 auto", textAlign: "center", maxWidth: "720px" }}
@@ -103,9 +120,11 @@ export default function AthleteDevelopmentSection() {
           href="https://wa.me/201279266345?text=أنا%20مهتم%20بمنهج%20صناعة%20البطل%20للأكاديمية"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary"
+          className="btn-primary flex items-center justify-center gap-2"
         >
-          📲 ابدأ تطبيق المنهج في أكاديميتك ←
+          <MessageCircle size={18} />
+          <span>ابدأ تطبيق المنهج في أكاديميتك</span>
+          <ArrowLeft size={16} />
         </a>
         <p>منهج صناعة البطل — الفارق بين التدريب العادي والتطوير الحقيقي</p>
       </div>

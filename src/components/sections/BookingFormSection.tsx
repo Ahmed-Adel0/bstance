@@ -1,13 +1,22 @@
 "use client";
 import React from "react";
 import { useBookingForm } from "@/hooks/useBookingForm";
+import { 
+  Trophy, 
+  CheckCircle, 
+  Clock, 
+  ShieldCheck, 
+  BarChart3, 
+  MessageCircle, 
+  Zap 
+} from "lucide-react";
 
 const perks = [
-  { icon: "🏆", text: "برامج مصممة تحت إشراف متخصصين معتمدين" },
-  { icon: "✅", text: "تأكيد فوري عبر واتساب في أقل من دقيقتين" },
-  { icon: "🕐", text: "مواعيد مرنة — صباحاً ومساءً حسب جدولك" },
-  { icon: "🛡️", text: "تعقيم كامل بمعايير طبية معتمدة في كل جلسة" },
-  { icon: "📊", text: "متابعة مستمرة وتقييم دوري للأداء" },
+  { icon: <Trophy size={18} />, text: "برامج مصممة تحت إشراف متخصصين معتمدين" },
+  { icon: <CheckCircle size={18} />, text: "تأكيد فوري عبر واتساب في أقل من دقيقتين" },
+  { icon: <Clock size={18} />, text: "مواعيد مرنة — صباحاً ومساءً حسب جدولك" },
+  { icon: <ShieldCheck size={18} />, text: "تعقيم كامل بمعايير طبية معتمدة في كل جلسة" },
+  { icon: <BarChart3 size={18} />, text: "متابعة مستمرة وتقييم دوري للأداء" },
 ];
 
 export default function BookingFormSection() {
@@ -30,7 +39,7 @@ export default function BookingFormSection() {
             <ul className="bk-perks">
               {perks.map((p, i) => (
                 <li key={i} className="bk-perk">
-                  <div className="bk-ico">{p.icon}</div>
+                  <div className="bk-ico" style={{ color: i % 2 === 0 ? "var(--teal-light)" : "var(--gold)" }}>{p.icon}</div>
                   {p.text}
                 </li>
               ))}
@@ -39,12 +48,16 @@ export default function BookingFormSection() {
 
           {/* Right: form */}
           <form className="booking-form reveal rd2" onSubmit={handleSubmit}>
-            <div className="form-title">📲 احجز مكانك الآن</div>
+            <div className="form-title flex items-center justify-center gap-2">
+              <MessageCircle size={20} />
+              احجز مكانك الآن
+            </div>
             <div className="form-subtitle">
               سيتواصل معك فريقنا لترتيب باقي التفاصيل
             </div>
-            <div className="form-urgency">
-              ⚡ أسعار خاصة لفترة محدودة — احجز الآن
+            <div className="form-urgency flex items-center justify-center gap-2">
+              <Zap size={16} color="var(--gold)" fill="var(--gold)" /> 
+              أسعار خاصة لفترة محدودة — احجز الآن
             </div>
 
             {/* Name */}
@@ -106,9 +119,11 @@ export default function BookingFormSection() {
                 </option>
 
                 <optgroup label="— جلسات الريكافري —">
-                  <option value="ريكافري عادية">ريكافري عادية — 400 ج.م</option>
-                  <option value="ريكافري شاملة">ريكافري شاملة — 500 ج.م</option>
-                  <option value="حجامة فقط">حجامة فقط — 250 ج.م</option>
+                  <option value="Quick Recovery">Quick Recovery — 200 ج.م</option>
+                  <option value="Sport Recovery">Sport Recovery — 300 ج.م</option>
+                  <option value="Deep Recovery">Deep Recovery — 400 ج.م</option>
+                  <option value="Elite Recovery">Elite Recovery — 500 ج.م</option>
+                  <option value="حجامة رياضية">حجامة رياضية فقط — 250 ج.م</option>
                 </optgroup>
 
                 <optgroup label="— باقات التغذية —">
@@ -122,19 +137,6 @@ export default function BookingFormSection() {
                   <option value="تدريب 3 شهور">تدريب 3 شهور — 2,100 ج.م</option>
                   <option value="تدريب 6 شهور">تدريب 6 شهور — 3,800 ج.م</option>
                   <option value="تدريب سنة">تدريب سنة — 6,500 ج.م</option>
-                </optgroup>
-
-                <optgroup label="— باقات مركّبة —">
-                  <option value="تغذية + تدريب 3 شهور">تغذية + تدريب 3 شهور — 3,000 ج.م</option>
-                  <option value="تغذية + تدريب 6 شهور">تغذية + تدريب 6 شهور — 5,200 ج.م</option>
-                  <option value="تغذية + تدريب سنة">تغذية + تدريب سنة — 9,000 ج.م</option>
-                  <option value="تدريب + ريكافري شهر">تدريب + ريكافري شهر — 1,500 ج.م</option>
-                  <option value="تدريب + ريكافري 3 شهور">تدريب + ريكافري 3 شهور — 3,600 ج.م</option>
-                  <option value="تدريب + ريكافري 6 شهور">تدريب + ريكافري 6 شهور — 6,500 ج.م</option>
-                  <option value="تدريب + ريكافري سنة">تدريب + ريكافري سنة — 11,000 ج.م</option>
-                  <option value="تغذية + ريكافري 3 شهور">تغذية + ريكافري 3 شهور — 2,200 ج.م</option>
-                  <option value="تغذية + ريكافري 6 شهور">تغذية + ريكافري 6 شهور — 3,800 ج.م</option>
-                  <option value="تغذية + ريكافري سنة">تغذية + ريكافري سنة — 6,000 ج.م</option>
                 </optgroup>
 
                 <optgroup label="— الباقة الشاملة (Transformation) —">
@@ -160,7 +162,7 @@ export default function BookingFormSection() {
             {/* Submit */}
             <button
               type="submit"
-              className="submit-btn"
+              className="submit-btn flex items-center justify-center gap-2"
               disabled={isSubmitted}
               style={
                 isSubmitted
@@ -168,9 +170,17 @@ export default function BookingFormSection() {
                   : {}
               }
             >
-              {isSubmitted
-                ? "✅ تم الإرسال! سنتواصل معك فوراً 🎉"
-                : "📲 أرسل طلب الحجز الآن"}
+              {isSubmitted ? (
+                <>
+                  <CheckCircle size={18} />
+                  تم الإرسال! سنتواصل معك فوراً
+                </>
+              ) : (
+                <>
+                  <MessageCircle size={18} />
+                  أرسل طلب الحجز الآن
+                </>
+              )}
             </button>
 
             <div className="form-note">

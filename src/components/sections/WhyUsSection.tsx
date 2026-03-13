@@ -1,5 +1,17 @@
 "use client";
 import React from "react";
+import { 
+  Dumbbell, 
+  Apple, 
+  Activity, 
+  Zap, 
+  Shield, 
+  CalendarCheck, 
+  ArrowLeft, 
+  Trophy, 
+  Star, 
+  Building2 
+} from "lucide-react";
 
 /* ════════════════════════════════════════════════
    WhyUsSection — لماذا B•Stance
@@ -8,21 +20,21 @@ import React from "react";
 
 const pillars = [
   {
-    icon: "🏋️",
+    icon: <Dumbbell size={32} color="var(--teal-light)" />,
     title: "برامج تدريبية احترافية",
     text: "يقدمها خبراء حاصلون على أعلى الاعتمادات العالمية في التدريب بالإضافة إلى درجة الماجستير في التربية الرياضية.",
     result: "✦ برامج علمية مبنية على أحدث الأبحاث والمعايير الدولية",
     delay: "",
   },
   {
-    icon: "🥗",
+    icon: <Apple size={32} color="var(--gold)" />,
     title: "تغذية رياضية متخصصة",
     text: "برامج تغذية رياضية متخصصة لكل رياضة تحت إشراف أخصائيين معتمدين من وحدة الطب الرياضي بوزارة الشباب والرياضة.",
     result: "✦ أنظمة غذائية مبنية على بيانات حقيقية وأهداف محددة",
     delay: "rd1",
   },
   {
-    icon: "🔄",
+    icon: <Activity size={32} color="var(--teal-light)" />,
     title: "استشفاء رياضي متكامل",
     text: "برامج استشفاء رياضي متكاملة ومقننة حسب البرنامج التدريبي لكل لاعب للمساعدة على التعافي الصحيح والوصول لأعلى مستوى أداء.",
     result: "✦ تقنيات استشفاء متقدمة نادراً ما تجدها في المنطقة",
@@ -70,13 +82,12 @@ export default function WhyUsSection() {
           </p>
           <div className="why-badges">
             {[
-              { icon: "💪", text: "تحسين القوة واللياقة" },
-              { icon: "⚡", text: "تسريع التعافي" },
-              { icon: "🛡️", text: "تقليل الإصابات" },
-              { icon: "🏆", text: "أفضل أداء في المنافسات" },
+              { icon: <Dumbbell size={18} />, text: "أداء أقوى" },
+              { icon: <Zap size={18} />, text: "سرعة أعلى" },
+              { icon: <Shield size={18} />, text: "حماية من الإصابات" },
             ].map((r, i) => (
               <div key={i} className="why-badge">
-                <span>{r.icon}</span> {r.text}
+                <span style={{ color: "var(--teal-light)" }}>{r.icon}</span> {r.text}
               </div>
             ))}
           </div>
@@ -89,13 +100,13 @@ export default function WhyUsSection() {
           </div>
           <div className="why-audience-list">
             {[
-              { icon: "🏆", text: "الأبطال والمحترفون الساعون لكسر أرقامهم" },
-              { icon: "🏋️", text: "لاعبي الجيم الباحثين عن نتائج حقيقية" },
-              { icon: "⭐", text: "الأكاديميات الرياضية والناشئين لحماية مستقبلهم الرياضي" },
-              { icon: "🏟️", text: "الجيمات التي تريد تقديم خدمات متكاملة لعملائها" },
+              { icon: <Trophy size={20} />, text: "الأبطال والمحترفون الساعون لكسر أرقامهم" },
+              { icon: <Dumbbell size={20} />, text: "لاعبي الجيم الباحثين عن نتائج حقيقية" },
+              { icon: <Star size={20} />, text: "الأكاديميات الرياضية والناشئين لحماية مستقبلهم الرياضي" },
+              { icon: <Building2 size={20} />, text: "الجيمات التي تريد تقديم خدمات متكاملة لعملائها" },
             ].map((a, i) => (
               <div key={i} className="why-audience-item">
-                <span className="why-audience-icon">{a.icon}</span>
+                <span className="why-audience-icon" style={{ color: "var(--teal-light)" }}>{a.icon}</span>
                 <span className="why-audience-text">{a.text}</span>
               </div>
             ))}
@@ -104,8 +115,10 @@ export default function WhyUsSection() {
 
         {/* ── CTA ── */}
         <div className="section-cta-bar">
-          <a href="#packages" className="btn-primary">
-            📲 ابدأ برنامجك الآن ←
+          <a href="#packages" className="btn-primary flex items-center justify-center gap-2">
+            <CalendarCheck size={18} />
+            <span>ابدأ برنامجك الآن</span>
+            <ArrowLeft size={16} />
           </a>
           <p>التدريب البدني • التغذية الرياضية • الاستشفاء العضلي</p>
         </div>

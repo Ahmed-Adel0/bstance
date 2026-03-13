@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { Rocket, Layout } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -55,11 +56,13 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div className="hero-btns">
-              <a href="#packages" className="btn-primary">
-                ابدأ برنامجك الآن
+              <a href="#packages" className="btn-primary flex items-center justify-center gap-2">
+                <Rocket size={20} />
+                <span>ابدأ برنامجك الآن</span>
               </a>
-              <a href="#packages" className="btn-outline">
-               تصفح خدماتنا
+              <a href="#packages" className="btn-outline flex items-center justify-center gap-2">
+                <Layout size={20} />
+                <span>تصفح خدماتنا</span>
               </a>
             </div>
           </div>

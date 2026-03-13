@@ -1,22 +1,35 @@
 "use client";
 import React from "react";
+import { 
+  Dumbbell, 
+  Apple, 
+  Activity, 
+  Droplets, 
+  Zap, 
+  ShieldCheck, 
+  Trophy, 
+  School, 
+  Target,
+  MessageCircle,
+  ArrowLeft
+} from "lucide-react";
 
 /* ════════════════════════════════════════════════
    AcademyServicesSection — خدماتنا للأكاديميات والجيمات
    ════════════════════════════════════════════════ */
 
 const services = [
-  { icon: "🏋️", text: "تدريب فتنس متخصص للاعبين" },
-  { icon: "🥗", text: "برامج تغذية رياضية مخصصة" },
-  { icon: "💆", text: "جلسات استشفاء عضلي" },
-  { icon: "🔴", text: "جلسات حجامة للرياضيين" },
+  { icon: <Dumbbell size={18} />, text: "تدريب فتنس متخصص للاعبين" },
+  { icon: <Apple size={18} />, text: "برامج تغذية رياضية مخصصة" },
+  { icon: <Activity size={18} />, text: "جلسات استشفاء عضلي" },
+  { icon: <Droplets size={18} />, text: "جلسات حجامة للرياضيين" },
 ];
 
 const goals = [
-  { icon: "💪", text: "تحسين القوة واللياقة" },
-  { icon: "⚡", text: "تسريع التعافي" },
-  { icon: "🛡️", text: "تقليل الإصابات" },
-  { icon: "🏆", text: "الوصول لأفضل أداء في المنافسات" },
+  { icon: <Dumbbell size={18} />, text: "تحسين القوة واللياقة" },
+  { icon: <Zap size={18} />, text: "تسريع التعافي" },
+  { icon: <ShieldCheck size={18} />, text: "تقليل الإصابات" },
+  { icon: <Trophy size={18} />, text: "الوصول لأفضل أداء في المنافسات" },
 ];
 
 export default function AcademyServicesSection() {
@@ -40,7 +53,7 @@ export default function AcademyServicesSection() {
         {/* Services Column */}
         <div className="acad-card">
           <div className="acad-card-header acad-card-header--teal">
-            <span className="acad-card-icon">🏟️</span>
+            <span className="acad-card-icon"><School size={24} /></span>
             <div>
               <div className="acad-card-title">الخدمات المقدمة</div>
               <div className="acad-card-sub">
@@ -51,7 +64,7 @@ export default function AcademyServicesSection() {
           <div className="acad-items">
             {services.map((s, i) => (
               <div key={i} className={`acad-item reveal rd${i + 1}`}>
-                <span className="acad-item-icon">{s.icon}</span>
+                <span className="acad-item-icon" style={{ color: "var(--teal-light)" }}>{s.icon}</span>
                 <span className="acad-item-text">{s.text}</span>
               </div>
             ))}
@@ -61,7 +74,7 @@ export default function AcademyServicesSection() {
         {/* Goals Column */}
         <div className="acad-card">
           <div className="acad-card-header acad-card-header--gold">
-            <span className="acad-card-icon">🎯</span>
+            <span className="acad-card-icon"><Target size={24} /></span>
             <div>
               <div className="acad-card-title">هدف المنظومة</div>
               <div className="acad-card-sub">
@@ -72,7 +85,7 @@ export default function AcademyServicesSection() {
           <div className="acad-items">
             {goals.map((g, i) => (
               <div key={i} className={`acad-item acad-item--gold reveal rd${i + 1}`}>
-                <span className="acad-item-icon">{g.icon}</span>
+                <span className="acad-item-icon" style={{ color: "var(--gold)" }}>{g.icon}</span>
                 <span className="acad-item-text">{g.text}</span>
               </div>
             ))}
@@ -86,9 +99,11 @@ export default function AcademyServicesSection() {
           href="https://wa.me/201279266345?text=أنا%20مهتم%20بخدمات%20B•Stance%20للأكاديميات"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary"
+          className="btn-primary flex items-center justify-center gap-2"
         >
-          📲 تواصل معنا للأكاديميات ←
+          <MessageCircle size={18} />
+          <span>تواصل معنا للأكاديميات</span>
+          <ArrowLeft size={16} />
         </a>
         <p>شراكات مصممة لتطوير أداء لاعبيك وحمايتهم من الإصابات</p>
       </div>
