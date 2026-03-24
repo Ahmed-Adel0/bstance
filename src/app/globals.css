@@ -4215,3 +4215,502 @@ footer {
     transform: translateY(0);
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   HALL OF FAME SECTION
+   ══════════════════════════════════════════════════════ */
+.hof-section {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+/* Background Glow Orbs */
+.hof-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+}
+.hof-glow--1 {
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  right: -100px;
+  background: var(--gold);
+  animation: glowFloat 12s infinite alternate-reverse ease-in-out;
+}
+.hof-glow--2 {
+  width: 400px;
+  height: 400px;
+  bottom: 200px;
+  left: -80px;
+  background: var(--teal-light);
+  animation: glowFloat 9s 2s infinite alternate ease-in-out;
+}
+
+/* ── Section Header ── */
+.hof-header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+.hof-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px !important;
+}
+
+/* ── Filter Tabs ── */
+.hof-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+.hof-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: "Cairo", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(61, 216, 200, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.55);
+}
+.hof-filter-btn:hover {
+  border-color: rgba(61, 216, 200, 0.45);
+  color: var(--teal-light);
+  background: rgba(61, 216, 200, 0.06);
+  transform: translateY(-2px);
+}
+.hof-filter-btn.active {
+  background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+  border-color: transparent;
+  color: var(--navy);
+  box-shadow: 0 6px 20px rgba(61, 216, 200, 0.3);
+}
+.hof-filter-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Champions Grid ── */
+.hof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 72px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Champion Card ── */
+.hof-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.hof-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.hof-card--teal { border-color: rgba(61, 216, 200, 0.15); }
+.hof-card--gold  { border-color: rgba(255, 179, 71, 0.15); }
+.hof-card--blue  { border-color: rgba(79, 172, 254, 0.15); }
+.hof-card--teal:hover { border-color: rgba(61, 216, 200, 0.4); box-shadow: 0 24px 60px rgba(61, 216, 200, 0.1); }
+.hof-card--gold:hover  { border-color: rgba(255, 179, 71, 0.4);  box-shadow: 0 24px 60px rgba(255, 179, 71, 0.1); }
+.hof-card--blue:hover  { border-color: rgba(79, 172, 254, 0.4);  box-shadow: 0 24px 60px rgba(79, 172, 254, 0.1); }
+
+/* Card inner glow */
+.hof-card-glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.12;
+  transition: opacity 0.4s;
+}
+.hof-card:hover .hof-card-glow { opacity: 0.22; }
+.hof-card-glow--teal { background: var(--teal-light); }
+.hof-card-glow--gold  { background: var(--gold); }
+.hof-card-glow--blue  { background: var(--blue); }
+
+/* Top row */
+.hof-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.hof-category-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+}
+.hof-category-pill--teal {
+  background: rgba(61, 216, 200, 0.12);
+  border: 1px solid rgba(61, 216, 200, 0.28);
+  color: var(--teal-light);
+}
+.hof-category-pill--gold {
+  background: rgba(255, 179, 71, 0.12);
+  border: 1px solid rgba(255, 179, 71, 0.28);
+  color: var(--gold);
+}
+.hof-category-pill--blue {
+  background: rgba(79, 172, 254, 0.12);
+  border: 1px solid rgba(79, 172, 254, 0.28);
+  color: var(--blue);
+}
+.hof-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* Athlete Identity */
+.hof-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hof-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hof-avatar--teal {
+  background: rgba(61, 216, 200, 0.12);
+  border: 1px solid rgba(61, 216, 200, 0.3);
+  color: var(--teal-light);
+}
+.hof-avatar--gold {
+  background: rgba(255, 179, 71, 0.12);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  color: var(--gold);
+}
+.hof-avatar--blue {
+  background: rgba(79, 172, 254, 0.12);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  color: var(--blue);
+}
+.hof-name {
+  font-family: "Tajawal", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+}
+.hof-sport {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+.hof-sport-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.hof-sport-dot--teal { background: var(--teal-light); }
+.hof-sport-dot--gold  { background: var(--gold); }
+.hof-sport-dot--blue  { background: var(--blue); }
+
+/* Transformation Bar */
+.hof-transform-bar {
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.hof-transform-bar--teal {
+  background: rgba(61, 216, 200, 0.07);
+  border: 1px solid rgba(61, 216, 200, 0.2);
+}
+.hof-transform-bar--gold {
+  background: rgba(255, 179, 71, 0.07);
+  border: 1px solid rgba(255, 179, 71, 0.2);
+}
+.hof-transform-bar--blue {
+  background: rgba(79, 172, 254, 0.07);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+}
+.hof-transform-label {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.hof-transform-value {
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #fff;
+  text-align: left;
+}
+
+/* Result text */
+.hof-result {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Quote block */
+.hof-quote-block {
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  position: relative;
+}
+.hof-quote-block--teal {
+  background: rgba(61, 216, 200, 0.06);
+  border-right: 3px solid var(--teal-light);
+}
+.hof-quote-block--gold {
+  background: rgba(255, 179, 71, 0.06);
+  border-right: 3px solid var(--gold);
+}
+.hof-quote-block--blue {
+  background: rgba(79, 172, 254, 0.06);
+  border-right: 3px solid var(--blue);
+}
+.hof-quote-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 0.4;
+}
+.hof-quote-text {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Card CTA link */
+.hof-card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s;
+  margin-top: auto;
+}
+.hof-card-cta--teal {
+  background: rgba(61, 216, 200, 0.1);
+  border: 1px solid rgba(61, 216, 200, 0.3);
+  color: var(--teal-light);
+}
+.hof-card-cta--gold {
+  background: rgba(255, 179, 71, 0.1);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  color: var(--gold);
+}
+.hof-card-cta--blue {
+  background: rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  color: var(--blue);
+}
+.hof-card-cta--teal:hover { background: rgba(61, 216, 200, 0.2); transform: translateY(-2px); }
+.hof-card-cta--gold:hover  { background: rgba(255, 179, 71, 0.2);  transform: translateY(-2px); }
+.hof-card-cta--blue:hover  { background: rgba(79, 172, 254, 0.2);  transform: translateY(-2px); }
+
+/* ── Service Conversion Bridge ── */
+.hof-services-bridge {
+  position: relative;
+  z-index: 1;
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(61, 216, 200, 0.1);
+}
+.hof-bridge-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.hof-bridge-title {
+  font-family: "Tajawal", sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 10px 0 12px;
+}
+.hof-bridge-sub {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Service Cards Grid */
+.hof-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.hof-svc-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 22px;
+  padding: 28px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+.hof-svc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hof-svc-card--teal::before { background: linear-gradient(90deg, transparent, var(--teal-light), transparent); }
+.hof-svc-card--gold::before  { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.hof-svc-card--blue::before  { background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+.hof-svc-card:hover { transform: translateY(-6px); }
+.hof-svc-card:hover::before { opacity: 1; }
+.hof-svc-card--teal:hover { border-color: rgba(61, 216, 200, 0.3); box-shadow: 0 16px 40px rgba(61, 216, 200, 0.08); }
+.hof-svc-card--gold:hover  { border-color: rgba(255, 179, 71, 0.3);  box-shadow: 0 16px 40px rgba(255, 179, 71, 0.08); }
+.hof-svc-card--blue:hover  { border-color: rgba(79, 172, 254, 0.3);  box-shadow: 0 16px 40px rgba(79, 172, 254, 0.08); }
+
+.hof-svc-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hof-svc-icon-wrap--teal { background: rgba(61, 216, 200, 0.1); border: 1px solid rgba(61, 216, 200, 0.2); }
+.hof-svc-icon-wrap--gold  { background: rgba(255, 179, 71, 0.1);  border: 1px solid rgba(255, 179, 71, 0.2); }
+.hof-svc-icon-wrap--blue  { background: rgba(79, 172, 254, 0.1);  border: 1px solid rgba(79, 172, 254, 0.2); }
+
+.hof-svc-title {
+  font-family: "Tajawal", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+}
+.hof-svc-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
+}
+.hof-svc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.25s;
+  margin-top: auto;
+}
+.hof-svc-cta--teal { color: var(--teal-light); }
+.hof-svc-cta--gold  { color: var(--gold); }
+.hof-svc-cta--blue  { color: var(--blue); }
+.hof-svc-cta:hover { gap: 12px; opacity: 0.85; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hof-svc-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .hof-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 48px;
+  }
+  .hof-filters {
+    gap: 8px;
+  }
+  .hof-filter-btn {
+    padding: 7px 14px;
+    font-size: 0.75rem;
+  }
+  .hof-title {
+    font-size: 1.5rem !important;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+@media (max-width: 480px) {
+  .hof-card {
+    padding: 20px;
+  }
+  .hof-card-top {
+    flex-wrap: wrap;
+  }
+}

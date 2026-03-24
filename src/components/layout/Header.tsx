@@ -64,6 +64,11 @@ export default function Header() {
               </a>
             </li>
             <li>
+              <a href="#hall-of-fame" className="inline-flex items-center">
+                أبطالنا
+              </a>
+            </li>
+            <li>
               <a href="#team" className="inline-flex items-center">
                 الفريق
               </a>
@@ -121,6 +126,11 @@ export default function Header() {
           <li>
             <a href="#athlete-dev" onClick={closeMenu}>
               منهج صناعة البطل
+            </a>
+          </li>
+          <li>
+            <a href="#hall-of-fame" onClick={closeMenu}>
+              أبطالنا
             </a>
           </li>
           <li>

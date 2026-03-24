@@ -6,6 +6,7 @@ import AcademyServicesSection from '@/components/sections/AcademyServicesSection
 import ServicesSection from '@/components/sections/ServicesSection';
 import PackagesSection from '@/components/sections/PackagesSection';
 import AthleteDevelopmentSection from '@/components/sections/AthleteDevelopmentSection';
+import HallOfFameSection from '@/components/sections/HallOfFameSection';
 import TeamSection from '@/components/sections/TeamSection';
 import CTASection from '@/components/sections/CTASection';
 import FAQSection from '@/components/sections/FAQSection';
@@ -71,6 +72,7 @@ export default function Home() {
       <ServicesSection />
       <PackagesSection />
       <AthleteDevelopmentSection />
+      {/* <HallOfFameSection /> */}
       <TeamSection />
       <CTASection />
       <FAQSection />

@@ -1,157 +1,86 @@
 "use client";
 import React, { useState } from "react";
-import { 
-  Apple, 
-  Dumbbell, 
-  Activity, 
-  Droplets, 
-  Flame, 
-  Zap, 
-  Battery, 
-  Trophy,
+import {
   Check,
-  MoveRight,
   ArrowLeft,
-  CalendarCheck
+  CalendarCheck,
+  Target,
+  Users,
+  Shield,
+  Star,
+  Clock,
+  TrendingUp,
+  Award,
+  Flame,
+  Heart,
 } from "lucide-react";
 
 /* ════════════════════════════════════════════════
-   PackagesSection — باقات B•Stance الجديدة
-   باقات فردية + مركّبة + باقة شاملة
+   PackagesSection — باقات B•Stance المحسّنة
+   مع: Persona / نتائج متوقعة / CTA قوي / Risk Reversal
    ════════════════════════════════════════════════ */
 
-type PackageCategory = "nutrition" | "training" | "recovery" | "transformation";
+import { PackageCategory, tabs, packageGroups, PackageGroup } from "../../data/packagesData";
 
-interface TabDef {
-  id: PackageCategory;
-  label: string;
-  icon: React.ReactNode;
+/* ─── Color helpers ─── */
+const colorVar = (color: PackageGroup["color"]) =>
+  color === "gold"
+    ? "var(--gold)"
+    : color === "blue"
+    ? "var(--blue)"
+    : color === "red"
+    ? "var(--red)"
+    : "var(--teal-light)";
+
+const colorAlpha = (color: PackageGroup["color"], alpha: number) =>
+  color === "gold"
+    ? `rgba(255,215,0,${alpha})`
+    : color === "blue"
+    ? `rgba(79,172,254,${alpha})`
+    : color === "red"
+    ? `rgba(255,77,77,${alpha})`
+    : `rgba(61,216,200,${alpha})`;
+
+/* ─── Sub-components ─── */
+function PersonaBadge({ label, color }: { label: string; color: PackageGroup["color"] }) {
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        padding: "3px 10px",
+        borderRadius: "20px",
+        fontSize: "0.78rem",
+        fontWeight: "700",
+        background: colorAlpha(color, 0.12),
+        color: colorVar(color),
+        border: `1px solid ${colorAlpha(color, 0.25)}`,
+        marginBottom: "6px",
+      }}
+    >
+      {label}
+    </span>
+  );
 }
 
-const tabs: TabDef[] = [
-  { id: "training", label: "التدريب", icon: <Dumbbell size={18} /> },
-  { id: "nutrition", label: "التغذية", icon: <Apple size={18} /> },
-  { id: "recovery", label: "الريكافري", icon: <Activity size={18} /> },
-  { id: "transformation", label: "الباقة الشاملة", icon: <Trophy size={18} /> },
-];
-
-interface PackageItem {
-  duration: string;
-  price: string;
-  originalPrice?: string;
-  note?: string;
-  features?: string[];
+function ResultBadge({ text }: { text: string }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "8px",
+        fontSize: "0.88rem",
+        color: "rgba(255,255,255,0.75)",
+        marginBottom: "6px",
+      }}
+    >
+      <TrendingUp size={14} style={{ marginTop: "2px", flexShrink: 0, color: "#4ade80" }} />
+      <span>{text}</span>
+    </div>
+  );
 }
 
-interface PackageGroup {
-  id: PackageCategory;
-  title: string;
-  subtitle: string;
-  desc?: string;
-  color: "teal" | "gold" | "red" | "blue";
-  items: PackageItem[];
-  includes?: string[];
-}
-
-const packageGroups: PackageGroup[] = [
-  {
-    id: "training",
-    title: "باقات التدريب",
-    subtitle: "برامج تدريب فتنس احترافية",
-    color: "teal",
-    desc: "خطة تدريبية متكاملة تحت إشراف نخبة من المتخصصين للوصول إلى أقصى مستويات القوة واللياقة وتقليل فرص الإصابة.",
-    items: [
-      { 
-        duration: "شهر", price: "800", originalPrice: "1,200",
-        features: ["تصميم برنامج رياضي مخصص لهدفك", "توجيه دقيق للأداء الحركي الصحيح", "متابعة وتحديث أسبوعي"]
-      },
-      { 
-        duration: "3 شهور", price: "2,100", originalPrice: "3,600",
-        features: ["برنامج رياضي متخصص للتطور البدني", "تطوير مستمر لزيادة الأحمال والأوزان", "متابعة دقيقة وتصحيح الأداء", "تقييم شهري للقوة ونقاط الضعف"]
-      },
-      { 
-        duration: "6 شهور", price: "3,800", originalPrice: "7,200",
-        features: ["برنامج تدريبي متدرج ومتقدم", "تحليل وتصحيح دقيق للحركة التعويضية", "تقييم نصف شهري للأداء", "خطة شاملة لتقليل وحماية من الإصابات"]
-      },
-      { 
-        duration: "سنة", price: "6,500", originalPrice: "14,400",
-        features: ["إشراف تدريبي استراتيجي لعام كامل", "تعديل البرامج تزامناً مع مراحل الموسم", "تجهيز بدني مكثف للبطولات", "تحسينات متعاقبة وبناء بطل حقيقي"]
-      },
-    ]
-  },
-  {
-    id: "nutrition",
-    title: "باقات التغذية",
-    subtitle: "أنظمة غذائية رياضية مخصصة",
-    color: "gold",
-    desc: "برامج تغذية مصممة علمياً لتلبية احتياجاتك، سواء كنت تسعى لحرق الدهون، بناء العضلات، أو تحسين أدائك الرياضي.",
-    items: [
-      { 
-        duration: "3 شهور", price: "1,500", originalPrice: "3,000",
-        features: ["خطة غذائية مفصلة ومتجددة", "متابعة دورية كل أسبوعين", "قائمة بدائل واسعة للوجبات", "تخطيط أساسي للمكملات الغذائية"]
-      },
-      { 
-        duration: "6 شهور", price: "2,500", originalPrice: "6,000",
-        features: ["أنظمة غذائية مرنة ومحدثة باستمرار", "متابعة أسبوعية لضمان الاستمرارية", "تعديلات مخصصة لكسر ثبات الوزن", "إرشادات مكملات متقدمة للرياضيين"]
-      },
-      { 
-        duration: "سنة", price: "4,000", originalPrice: "12,000",
-        features: ["متابعة شخصية دقيقة ومستمرة (VIP)", "تعديلات لامحدودة على البرامج", "تجهيز غذائي شامل للبطولات الرياضية", "دعم متواصل على مدار العام"]
-      },
-    ]
-  },
-  {
-    id: "recovery",
-    title: "جلسات الريكافري والحجامة",
-    subtitle: "أعلى مستويات الاستشفاء البدني",
-    color: "teal",
-    desc: "منظومة استشفاء متكاملة صُممت خصيصاً للرياضيين لضمان أسرع عودة للمنافسة، من الاسترخاء الأساسي وحتى الاسترداد العميق.",
-    items: [
-      { 
-        duration: "Quick Recovery", price: "200", originalPrice: "300", note: "للاستراحة الفورية",
-        features: ["تدليك رقبة وكتف وظهر", "تدليك يدوي بزيوت طبيعية", "استخدام جهاز الجن لتفكيك العضلات", "جلسة سريعة وفعالة (30 دقيقة)"]
-      },
-      { 
-        duration: "Sport Recovery", price: "300", originalPrice: "500", note: "الأكثر طلباً للرياضيين",
-        features: ["تدليك شامل (رقبة، ظهر، ذراعين، رجلين)", "استخدام أدوات الريكافري الاحترافية", "تحسين المدى الحركي للمفاصل", "تخفيف آلام التمرين المكثف"]
-      },
-      { 
-        duration: "Deep Recovery", price: "400", originalPrice: "600", note: "الاستشفاء الحراري العميق",
-        features: ["كل مميزات الباقة الرياضية", "تقنية الفوطة النارية (Heat Therapy)", "حجامة موضعية لمناطق الألم", "فك التصلبات العضلية المزمنة"]
-      },
-      { 
-        duration: "Elite Recovery", price: "500", originalPrice: "700", note: "المنظومة الكاملة - VIP",
-        features: ["تجربة الاستشفاء القصوى للـ Pro", "كل التقنيات (حرارة + يدوي + أدوات)", "حجامة شاملة (ظهر + كل رجل)", "رعاية خاصة وتجهيز بدني متكامل"]
-      },
-      { 
-        duration: "حجامة رياضية", price: "250", originalPrice: "400", note: "تجديد النشاط والحيوية",
-        features: ["جلسة حجامة رياضية دقيقة", "تنشيط الدورة الدموية الكبرى", "إزالة السموم والاحتقان العضلي", "تدليك يدوي تنشيطي سريع"]
-      }
-    ]
-  },
-  {
-    id: "transformation",
-    title: "الباقة الشاملة (Transformation Package)",
-    subtitle: "برنامج متكامل (تدريب + تغذية + ريكافري)",
-    color: "gold",
-    desc: "الخيار الأفضل للرياضيين الراغبين في تحول كامل في الأداء البدني، حيث تجمع المنظومة بين العلم والتطبيق لضمان النتائج.",
-    items: [
-      { 
-        duration: "3 شهور", price: "4,500", originalPrice: "6,000",
-        features: ["برنامج تدريب بدني مكثف", "خطة تغذية رياضية مخصصة", "جلسات ريكافري منتظمة", "متابعة دورية وتقييم أداء"]
-      },
-      { 
-        duration: "6 شهور", price: "8,000", originalPrice: "12,000",
-        features: ["تحديث شهري شامل للخطط", "أولوية في حجز جلسات الريكافري", "تطوير مستمر لزيادة الأحمال", "دعم مباشر من الفريق الفني"]
-      },
-      { 
-        duration: "سنة", price: "14,000", originalPrice: "24,000",
-        features: ["مشروع صناعة بطل متكامل", "متابعة VIP على مدار الساعة", "تجهيز بدني وغذائي للمنافسات", "وصول شامل لكافة تقنيات الاستشفاء"]
-      },
-    ]
-  },
-];
-
+/* ─── Main Component ─── */
 export default function PackagesSection() {
   const [activeTab, setActiveTab] = useState<PackageCategory>("transformation");
 
@@ -163,15 +92,55 @@ export default function PackagesSection() {
 
   return (
     <>
+      <style>{`
+        .pkg-content {
+           max-width: 1750px !important;
+           width: 100%;
+           padding: 0 16px;
+           margin: 0 auto;
+        }
+        .creative-card {
+           position: relative;
+           background: #111727; /* Deep Navy Background */
+           border-radius: 24px;
+           padding: 28px 24px;
+           display: flex;
+           flex-direction: column;
+           align-items: flex-start;
+           text-align: right;
+           transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+           border: 1px solid rgba(255, 255, 255, 0.05);
+           z-index: 1;
+           overflow: hidden;
+        }
+        .creative-card:hover {
+           transform: translateY(-8px);
+           box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .creative-hero-card {
+           border: 1px solid rgba(255, 215, 0, 0.3) !important;
+           background: linear-gradient(160deg, #182038, #111727);
+        }
+        .creative-hero-card:hover {
+           box-shadow: 0 25px 60px rgba(255, 215, 0, 0.15);
+           border: 1px solid rgba(255, 215, 0, 0.5) !important;
+        }
+        .feature-row {
+           transition: all 0.3s ease;
+        }
+        .feature-row:hover {
+           transform: translateX(-4px);
+        }
+      `}</style>
       <section className="section" id="packages">
-        {/* Header */}
+        {/* ── Header ── */}
         <div className="pkg-header">
           <div className="s-label" style={{ justifyContent: "center" }}>
             باقات B•Stance
           </div>
-          <h2 className="s-title pkg-title">
-            اختر الباقة التي تناسب هدفك
-          </h2>
+          <h2 className="s-title pkg-title">اختر الباقة التي تناسب هدفك</h2>
           <p className="s-sub pkg-sub">
             باقات متنوعة تناسب كل الأهداف — فردية أو مركّبة أو شاملة.
             <br />
@@ -182,7 +151,39 @@ export default function PackagesSection() {
           </p>
         </div>
 
-        {/* Tabs */}
+        {/* ── Urgency Strip ── */}
+        <div
+          style={{
+            maxWidth: "720px",
+            margin: "0 auto 40px",
+            padding: "14px 24px",
+            borderRadius: "16px",
+            background: "linear-gradient(135deg, rgba(255,215,0,0.08), rgba(61,216,200,0.08))",
+            border: "1px solid rgba(255,215,0,0.2)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "32px",
+            flexWrap: "wrap",
+            fontSize: "0.88rem",
+            fontWeight: "700",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "rgba(255,255,255,0.75)" }}>
+            <Shield size={16} style={{ color: "var(--teal-light)" }} />
+            ضمان الرضا الكامل
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "rgba(255,255,255,0.75)" }}>
+            <Clock size={16} style={{ color: "var(--gold)" }} />
+            أماكن محدودة شهريًا
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "rgba(255,255,255,0.75)" }}>
+            <Star size={16} style={{ color: "var(--gold)" }} />
+            <span style={{ color: "var(--gold)" }}>خصم 10% عند خدمتين | 15% عند 3 خدمات 🔥</span>
+          </span>
+        </div>
+
+        {/* ── Tabs ── */}
         <div className="pkg-tabs" role="tablist" aria-label="أقسام الباقات">
           {tabs.map((tab) => (
             <button
@@ -201,107 +202,209 @@ export default function PackagesSection() {
           ))}
         </div>
 
-        {/* Active Package Content */}
-        <div 
-          className="pkg-content" 
+        {/* ── Content Panel ── */}
+        <div
+          className="pkg-content"
           key={activeTab}
           id={`panel-${activeTab}`}
           role="tabpanel"
           aria-labelledby={`tab-${activeTab}`}
-          style={{ animation: "fadeInUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards", opacity: 0 }}
+          style={{
+            animation: "fadeInUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards",
+            opacity: 0,
+          }}
         >
+          {/* Panel Header */}
           <div className="pkg-content-header" style={{ marginBottom: "32px", textAlign: "center" }}>
-            <h3 className="pkg-content-title" style={{ fontSize: "1.8rem", color: activeGroup.color === 'gold' ? 'var(--gold)' : activeGroup.color === 'blue' ? 'var(--blue)' : activeGroup.color === 'red' ? 'var(--red)' : 'var(--teal-light)', marginBottom: "12px", transition: "color 0.3s ease" }}>
+            <h3
+              className="pkg-content-title"
+              style={{
+                fontSize: "1.8rem",
+                color: colorVar(activeGroup.color),
+                marginBottom: "12px",
+                transition: "color 0.3s ease",
+              }}
+            >
               {activeGroup.title}
             </h3>
-            <p className="pkg-content-sub" style={{ fontSize: "1.15rem", color: "#fff", fontWeight: "bold" }}>{activeGroup.subtitle}</p>
+            <p
+              className="pkg-content-sub"
+              style={{ fontSize: "1.15rem", color: "#fff", fontWeight: "bold" }}
+            >
+              {activeGroup.subtitle}
+            </p>
             {activeGroup.desc && (
-              <p style={{ marginTop: "16px", fontSize: "1rem", color: "rgba(255,255,255,0.7)", lineHeight: "1.8", maxWidth: "800px", margin: "16px auto 0" }}>
+              <p
+                style={{
+                  marginTop: "16px",
+                  fontSize: "1rem",
+                  color: "rgba(255,255,255,0.7)",
+                  lineHeight: "1.8",
+                  maxWidth: "800px",
+                  margin: "16px auto 0",
+                }}
+              >
                 {activeGroup.desc}
               </p>
             )}
+
+            {/* Category Persona */}
+            <div
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "center",
+                gap: "10px",
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem", fontWeight: "700" }}>
+                <Users size={14} style={{ display: "inline", marginLeft: "4px" }} />
+                مناسبة لـ:
+              </span>
+              {activeGroup.persona.map((p, i) => (
+                <PersonaBadge key={i} label={p} color={activeGroup.color} />
+              ))}
+            </div>
           </div>
 
-          {/* Pricing Cards (Features Included Inside) */}
-          <div className="pkg-pricing-grid" style={{ alignItems: "stretch" }}>
+          {/* ── Pricing Cards ── */}
+          <div 
+            style={{ 
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
+              gap: "20px",
+              alignItems: "stretch",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
             {activeGroup.items.map((item, i) => {
-              const isBestValue = activeGroup.items.length > 2 && i === activeGroup.items.length - 1;
+              const accentColor = colorVar(activeGroup.color);
+              const accentAlpha = (a: number) => colorAlpha(activeGroup.color, a);
+              const isHero = item.isHero || item.isBestValue;
+
               return (
                 <div
                   key={i}
-                  className={`pkg-pricing-card pkg-pricing-card--${activeGroup.color} ${isBestValue ? "pkg-pricing-card--best" : ""}`}
-                  style={{ 
-                    display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "100%", position: "relative", overflow: "hidden", 
-                    transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease",
-                    animation: `fadeInUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards`,
-                    animationDelay: `${i * 0.15}s`,
-                    opacity: 0
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
-                    e.currentTarget.style.boxShadow = `0 20px 40px rgba(0,0,0,0.4), 0 0 20px ${activeGroup.color === 'gold' ? 'rgba(255, 215, 0, 0.2)' : activeGroup.color === 'blue' ? 'rgba(79, 172, 254, 0.2)' : activeGroup.color === 'red' ? 'rgba(255, 77, 77, 0.2)' : 'rgba(61, 216, 200, 0.2)'}`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "none";
-                    e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-                  }}
+                  className={`creative-card ${isHero ? "creative-hero-card" : ""}`}
+                  style={{
+                     "--card-color": accentColor,
+                     "--card-color-alpha": accentAlpha(0.25),
+                     animation: `fadeInUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards`,
+                     animationDelay: `${i * 0.15}s`,
+                     opacity: 0,
+                  } as React.CSSProperties}
                 >
-                  {/* Highlight bar at top */}
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "4px", background: activeGroup.color === 'gold' ? 'var(--gold)' : activeGroup.color === 'blue' ? 'var(--blue)' : activeGroup.color === 'red' ? 'var(--red)' : 'var(--teal-light)' }} />
 
-                  <div>
-                    {isBestValue && (
-                      <div className="pkg-best-badge" style={{ marginTop: "12px", zIndex: 1 }}>أفضل قيمة 🏆</div>
-                    )}
-                    <div className="pkg-pricing-duration" style={{ fontSize: "1.4rem", marginBottom: "4px", paddingTop: isBestValue ? "0" : "12px" }}>{item.duration}</div>
-                    {item.note && (
-                      <div style={{ fontSize: "0.85rem", color: activeGroup.color === 'gold' ? 'var(--gold)' : 'var(--teal-light)', fontWeight: "bold", marginBottom: "8px", opacity: 0.9 }}>
-                        {item.note}
+                  {/* Subheading (Persona) */}
+                  <div style={{ fontSize: "0.85rem", color: "#8f9bb3", fontWeight: "600", marginBottom: "6px" }}>
+                    {item.persona.join(" و ")}
+                  </div>
+
+                  {/* Main Title */}
+                  <h4 style={{ fontSize: "1.6rem", fontWeight: "900", color: "#fff", marginBottom: "4px", letterSpacing: "-0.5px" }}>
+                    {item.label}
+                  </h4>
+
+                  {/* Duration / Subtitle */}
+                  <div style={{ fontSize: "0.85rem", color: "#637089", fontWeight: "500", marginBottom: "16px" }}>
+                    {item.duration} {item.note ? ` . ${item.note}` : " . شوف الفرق بنفسك"}
+                  </div>
+
+
+                  {/* Price Section */}
+                  <div style={{ width: "100%", marginBottom: "20px" }}>
+                    {item.originalPrice && (
+                      <div style={{ fontSize: "0.85rem", color: "#637089", textDecoration: "line-through", marginBottom: "2px", fontWeight: "600" }}>
+                        بدلاً من {item.originalPrice} ج.م
                       </div>
                     )}
-                    
-                    <div style={{ padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.08)", marginBottom: "24px" }}>
-                      {item.originalPrice && (
-                        <div className="pkg-pricing-orig" style={{ fontSize: "1rem", color: "rgba(255,255,255,0.4)", textDecoration: "line-through", marginBottom: "4px" }}>
-                          {item.originalPrice} ج.م
-                        </div>
-                      )}
-                      <div className="pkg-pricing-price-row" style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "6px" }}>
-                        <span className={`pkg-pricing-num pkg-pricing-num--${activeGroup.color}`} style={{ fontSize: "2.8rem" }}>
-                          {item.price}
-                        </span>
-                        <span className="pkg-pricing-unit" style={{ fontSize: "1rem", color: "rgba(255,255,255,0.6)" }}>ج.م</span>
-                      </div>
-                      {item.originalPrice && (
-                        <div className={`pkg-pricing-save pkg-pricing-save--${activeGroup.color}`} style={{ display: "inline-block", marginTop: "8px", padding: "4px 12px", borderRadius: "20px", background: activeGroup.color === 'gold' ? 'rgba(255, 215, 0, 0.1)' : activeGroup.color === 'blue' ? 'rgba(79, 172, 254, 0.1)' : activeGroup.color === 'red' ? 'rgba(255, 77, 77, 0.1)' : 'rgba(61, 216, 200, 0.1)', color: activeGroup.color === 'gold' ? 'var(--gold)' : activeGroup.color === 'blue' ? 'var(--blue)' : activeGroup.color === 'red' ? 'var(--red)' : 'var(--teal-light)', fontSize: "0.85rem", fontWeight: "bold" }}>
-                          وفّر {(parseInt(item.originalPrice.replace(/,/g, "")) - parseInt(item.price.replace(/,/g, ""))).toLocaleString()} ج.م 🔥
-                        </div>
-                      )}
+                    <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "8px" }}>
+                      <span style={{ fontSize: "2.8rem", fontWeight: "900", color: "#ffb347", lineHeight: "1" }}>
+                        {item.price}
+                      </span>
+                      <span style={{ fontSize: "0.9rem", color: "#637089", fontWeight: "600" }}>
+                        ج.م / {item.duration.replace("تجديد ", "").replace("باقة ", "")}
+                      </span>
                     </div>
                     
-                    {/* Features List inside the card */}
-                    {item.features && (
-                      <div className="pkg-card-features" style={{ margin: "0 0 28px", textAlign: "right", padding: "0 8px" }}>
-                        <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", marginBottom: "16px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>تشمل الآتي:</div>
-                        {item.features.map((inc, idx) => (
-                          <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "14px", fontSize: "0.95rem", color: "rgba(255,255,255,0.85)" }}>
-                            <span style={{ color: activeGroup.color === "gold" ? "var(--gold)" : activeGroup.color === "blue" ? "var(--blue)" : activeGroup.color === "red" ? "var(--red)" : "var(--teal-light)", marginTop: "2px", flexShrink: 0, filter: "drop-shadow(0 0 5px currentColor)" }}>
-                              <Check size={16} strokeWidth={3} />
-                            </span>
-                            <span style={{ lineHeight: "1.5" }}>{inc}</span>
-                          </div>
-                        ))}
+                    {item.originalPrice && (
+                      <div style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        background: "rgba(255, 179, 71, 0.08)",
+                        border: "1px solid rgba(255, 179, 71, 0.2)",
+                        color: "#ffb347",
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        fontSize: "0.75rem",
+                        fontWeight: "800",
+                        gap: "6px"
+                      }}>
+                        <Flame size={12} fill="#ffb347" />
+                        وفّر {(parseInt(item.originalPrice.replace(/,/g, "")) - parseInt(item.price.replace(/,/g, ""))).toLocaleString()} ج.م — خصم {Math.round(((parseInt(item.originalPrice.replace(/,/g, "")) - parseInt(item.price.replace(/,/g, ""))) / parseInt(item.originalPrice.replace(/,/g, ""))) * 100)}%
                       </div>
                     )}
                   </div>
 
+                  {/* Subtle Divider */}
+                  <div style={{ width: "100%", height: "1px", background: "rgba(255,255,255,0.06)", marginBottom: "20px" }} />
+
+                  {/* Features List */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", flexGrow: 1, width: "100%", marginBottom: "24px" }}>
+                    {item.features.map((f, idx) => (
+                      <div key={idx} className="feature-row" style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                        <Check size={16} strokeWidth={4} style={{ color: "#ffb347", flexShrink: 0, marginTop: "2px" }} />
+                        <span style={{ color: "#d1d8e0", fontSize: "0.9rem", fontWeight: "500", lineHeight: "1.6" }}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Interactive CTA Box */}
                   <button
-                    className={`pkg-pricing-cta pkg-pricing-cta--${activeGroup.color}`}
                     onClick={scrollToBooking}
-                    style={{ marginTop: "auto", width: "100%", padding: "16px", borderRadius: "12px", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", fontWeight: "bold", transition: "all 0.3s ease" }}
+                    style={{
+                      width: "100%",
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "14px",
+                      padding: "14px 16px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      textAlign: "right",
+                      marginTop: "auto",
+                      fontFamily: "inherit"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(255, 179, 71, 0.08)";
+                      e.currentTarget.style.borderColor = "rgba(255, 179, 71, 0.3)";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                      const icon = e.currentTarget.querySelector('svg');
+                      if(icon) {
+                        icon.style.opacity = '1';
+                        icon.style.filter = 'drop-shadow(0 0 8px rgba(255, 179, 71, 0.6))';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                      e.currentTarget.style.transform = "none";
+                      const icon = e.currentTarget.querySelector('svg');
+                      if(icon) {
+                        icon.style.opacity = '0.7';
+                        icon.style.filter = 'none';
+                      }
+                    }}
                   >
-                    اختيار الباقة
-                    <MoveRight size={18} />
+                    <span style={{ color: "#a0aec0", fontSize: "0.85rem", fontWeight: "600", lineHeight: "1.5", flex: 1 }}>
+                       نقطة الانطلاق المثالية — {item.ctaText}
+                    </span>
+                    <Star size={18} color="#a0aec0" fill="currentColor" style={{ flexShrink: 0, opacity: 0.7, transition: "all 0.3s ease", marginLeft: "8px" }} />
                   </button>
                 </div>
               );
@@ -309,19 +412,19 @@ export default function PackagesSection() {
           </div>
         </div>
 
-        {/* Compare note */}
+        {/* ── Risk Reversal + Trust Bar ── */}
         <div
           className="reveal"
           style={{
             textAlign: "center",
             marginTop: "48px",
-            padding: "24px",
+            padding: "28px 24px",
             background: "rgba(255,255,255,0.03)",
             borderRadius: "20px",
-            border: "1px solid rgba(255,255,255,0.05)",
-            maxWidth: "720px",
+            border: "1px solid rgba(255,255,255,0.06)",
+            maxWidth: "820px",
             margin: "48px auto 0",
-            boxShadow: "0 8px 30px rgba(0,0,0,0.15)"
+            boxShadow: "0 8px 30px rgba(0,0,0,0.15)",
           }}
         >
           <div
@@ -330,20 +433,38 @@ export default function PackagesSection() {
               justifyContent: "center",
               gap: "32px",
               flexWrap: "wrap",
-              fontSize: "0.9rem",
+              fontSize: "0.88rem",
               color: "rgba(255,255,255,0.6)",
-              fontWeight: "600"
+              fontWeight: "600",
             }}
           >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><span style={{ color: "var(--teal-light)" }}>★</span> باقات مرنة تناسب كل الميزانيات</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><span style={{ color: "var(--teal-light)" }}>★</span> إمكانية الترقية في أي وقت</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><span style={{ color: "var(--gold)", fontWeight: 800 }}>خصم 10% عند اختيار خدمتين | خصم 15% عند اختيار 3 خدمات  🔥</span></span>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Shield size={16} style={{ color: "var(--teal-light)" }} />
+              ضمان الرضا الكامل
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Star size={16} style={{ color: "var(--teal-light)" }} />
+              باقات مرنة قابلة للترقية
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Heart size={16} style={{ color: "var(--teal-light)" }} />
+              دعم مستمر طوال الرحلة
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ color: "var(--gold)", fontWeight: 800 }}>
+                خصم 10% عند خدمتين | خصم 15% عند 3 خدمات 🔥
+              </span>
+            </span>
           </div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* ── Bottom CTA ── */}
         <div className="section-cta-bar" style={{ marginTop: "32px" }}>
-          <a href="#booking" className="btn-primary flex items-center justify-center gap-2" style={{ padding: "16px 32px", fontSize: "1.1rem" }}>
+          <a
+            href="#booking"
+            className="btn-primary flex items-center justify-center gap-2"
+            style={{ padding: "16px 32px", fontSize: "1.1rem" }}
+          >
             <CalendarCheck size={20} />
             <span>احجز باقتك وابدأ منظومتك</span>
             <ArrowLeft size={18} />
