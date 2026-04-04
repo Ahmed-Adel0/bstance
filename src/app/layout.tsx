@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo, Tajawal } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
+import NavbarConditional from "@/components/layout/NavbarConditional";
 import "./globals.css";
 
 const cairo = Cairo({
@@ -16,7 +17,7 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: "B•Stance",
+  title: "B•Stance – Sports Performance Platform",
   description: "The premier destination for elite performance, integrating professional training, scientific nutrition, and advanced physical recovery.",
   icons: {
     icon: "/imgs/Icon.png",
@@ -31,8 +32,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
-      <body className={`${cairo.variable} ${tajawal.variable} antialiased font-cairo`}>
+    <html lang="ar" dir="rtl" className="dark">
+      <body className={`${cairo.variable} ${tajawal.variable} antialiased font-cairo bg-background text-foreground`}>
+        <NavbarConditional />
         {children}
         <Analytics />
       </body>
