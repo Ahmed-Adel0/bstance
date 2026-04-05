@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo, Tajawal } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import NavbarConditional from "@/components/layout/NavbarConditional";
+import UnderConstruction from "@/components/layout/UnderConstruction";
 import "./globals.css";
 
 const cairo = Cairo({
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className="dark">
       <body className={`${cairo.variable} ${tajawal.variable} antialiased font-cairo bg-background text-foreground`}>
         <NavbarConditional />
+        <UnderConstruction />
         {children}
         <Analytics />
       </body>

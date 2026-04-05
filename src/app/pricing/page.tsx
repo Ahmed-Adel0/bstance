@@ -169,7 +169,7 @@ export default function PricingPage() {
                 <Building2 className="w-5 h-5 text-blue-400" />
               </div>
               <div>
-                <h2 className="text-xl font-black">باقات الأكاديميات (B2B)</h2>
+                <h2 className="text-xl font-black">باقات الأكاديميات</h2>
                 <p className="text-xs text-muted-foreground">لإدارة الفرق والأكاديميات الرياضية</p>
               </div>
             </div>
