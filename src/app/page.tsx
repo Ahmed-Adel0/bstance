@@ -291,7 +291,7 @@ export default function HomePage() {
                   <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 </Link>
                 <Link
-                  href="/results"
+                  href="#results"
                   className="bg-secondary/50 text-foreground border border-border font-bold py-3 px-6 md:py-4 md:px-10 rounded-xl hover:bg-secondary transition-all text-sm sm:text-base md:text-lg flex items-center justify-center gap-2"
                 >
                  نتائجنا
@@ -407,7 +407,7 @@ export default function HomePage() {
       </section>
 
       {/* Infinite Results Scrolling Section */}
-      <section className="py-24 md:py-32 bg-background border-t border-border/50 overflow-hidden relative">
+      <section id="results" className="py-24 md:py-32 bg-background border-t border-border/50 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-16 md:mb-24 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium mb-6">
             <Star className="w-3 h-3 fill-primary text-primary" />
