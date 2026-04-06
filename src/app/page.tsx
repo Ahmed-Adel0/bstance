@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import WhatsAppForm from "@/components/WhatsAppForm";
+import { useState as useReactState } from "react";
 import {
   Dumbbell,
   Salad,
@@ -12,6 +15,7 @@ import {
   Zap,
   ChevronRight,
   Play,
+  X,
 } from "lucide-react";
 
 const stats = [
@@ -91,9 +95,154 @@ const colorMap: Record<string, string> = {
   yellow: "text-foreground bg-foreground/10 border-foreground/20",
 };
 
-export default function HomePage() {
+function FAQAccordion() {
+  const [activeIndex, setActiveIndex] = useReactState<number | null>(null);
+
+  const toggle = (i: number) => {
+    setActiveIndex(activeIndex === i ? null : i);
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="space-y-4">
+      {faqs.map((faq, i) => (
+        <div 
+          key={i} 
+          className="glass-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/20 transition-all cursor-pointer group"
+          onClick={() => toggle(i)}
+        >
+          <div className="p-6 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${activeIndex === i ? 'bg-primary text-white' : 'bg-primary/10 border border-primary/20 text-primary'}`}>
+                <span className="font-black text-xs">{i + 1}</span>
+              </div>
+              <h3 className="font-bold text-foreground transition-colors group-hover:text-primary">{faq.q}</h3>
+            </div>
+            <ChevronRight className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${activeIndex === i ? 'rotate-90 text-primary' : 'rotate-180'}`} />
+          </div>
+          
+          <div 
+            className={`transition-all duration-300 ease-in-out overflow-hidden ${activeIndex === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+          >
+            <div className="px-6 pb-6 pr-20 text-sm text-muted-foreground leading-relaxed border-t border-border/10 pt-4">
+              {faq.a}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const resultCardsData = [
+  { 
+    id: 1, 
+    name: "كنزي", 
+    sport: "رياضة تنافسية", 
+    stats: "وزن مثالي وأداء عالي", 
+    img: "/clients/kanzy.jpg", 
+    coach: "B•Stance Team", 
+    category: "تجهيز بطولات واستشفاء", 
+    story: "كنزي كانت بتواجه مشكلة كبيرة قبل البطولات، وزنها مش ثابت وضغط كبير إنها تنزل بسرعة، ومع كل محاولة كانت بتخاف تخسر قوتها أو طاقتها. قررت تبدأ بطريقة مختلفة، فاشتغلنا معاها على نظام متكامل من تدريب وتغذية واستشفاء. مع الوقت قدرت توصل لوزنها المثالي من غير إجهاد، وحافظت على مستواها البدني، ودخلت البطولات جاهزة بأعلى أداء." 
+  },
+  { 
+    id: 2, 
+    name: "جنّة", 
+    sport: "منتخب الصفوة", 
+    stats: "تأهل للمنتخب", 
+    img: "/clients/janah.jpg", 
+    coach: "B•Stance Team", 
+    category: "تغذية ذكية وإدارة طاقة", 
+    story: "جنّة كانت قبل تصفيات منتخب الصفوة تحت ضغط كبير، الوزن ثابت والتوتر عالي، وأي قرار غلط كان ممكن يضيّع الفرصة. بدل ما تعتمد على التخسيس العنيف، بدأنا معاها خطة قائمة على التغذية الذكية وإدارة طاقة الجسم. يوم التصفيات دخلت وهي مش مرهقة، بالعكس كانت بكامل قوتها، وقدرت تقدم أداء قوي وتتأهل لمنتخب الصفوة." 
+  },
+  { 
+    id: 3, 
+    name: "عبد الملك", 
+    sport: "لياقة وتأهيل", 
+    stats: "تعافي كامل", 
+    img: "/clients/عبدالملك.jpg", 
+    coach: "B•Stance Team", 
+    category: "إعادة تأهيل إصابات", 
+    story: "عبد الملك كان عنده تحدي صعب، انزلاق غضروفي في الفقرة الرابعة والخامسة مع ضغط شغل يومي. الوضع كان ممكن يخليه يوقف تمامًا، لكنه قرر يكمل. اشتغلنا معاه على برنامج تدريبي آمن مناسب لحالته مع نظام غذائي يساعده على التعافي. خلال شهر ونص بس بدأ يظهر فرق واضح في جسمه وأدائه، وقدر يتحسن بدون ما يضغط على إصابته." 
+  },
+  { 
+    id: 4, 
+    name: "أحمد", 
+    sport: "كونغ فو", 
+    stats: "+12kg عضل", 
+    img: "/imgs/res 1.jpg", 
+    coach: "B•Stance Team", 
+    category: "بناء عضلي رياضي", 
+    story: "أحمد بدأ رحلته كلاعب كونغ فو بوزن 58 كجم وكان محتاج يبني جسمه عشان ينافس بشكل أقوى. التزم ببرنامج تدريب مكثف ونظام غذائي دقيق مناسب لطبيعة لعبته. خلال 3 شهور وصل لوزن 70 كجم مع تحسن كبير في القوة والسرعة ورد الفعل، وأصبح جاهز للمنافسة بشكل أفضل." 
+  },
+  { 
+    id: 5, 
+    name: "محمود", 
+    sport: "كونغ فو / حركة", 
+    stats: "-8kg وزن", 
+    img: "/clients/محمود كونغ فو.jpg", 
+    coach: "B•Stance Team", 
+    category: "تحكم وتطوير أداء", 
+    story: "محمود بدأ بوزن 68 كجم وكان محتاج يتحكم في جسمه ويحسن أداءه داخل اللعب. اشتغل على نظام تدريب منتظم وتغذية مخصصة لهدفه. خلال فترة قصيرة قدر ينزل لوزن 60 كجم، ومع ده تحسنت سرعته وقدرته على التحكم في جسمه، وده انعكس بشكل واضح على مستواه وثقته أثناء اللعب." 
+  },
+  { 
+    id: 6, 
+    name: "عادل", 
+    sport: "لياقة عامة", 
+    stats: "تحول وتفوق", 
+    img: "/clients/عادل.jpg", 
+    coach: "B•Stance Team", 
+    category: "إدارة الوقت واللياقة", 
+    story: "عادل كان في فترة صعبة جدًا مع ضغط امتحانات الثانوية العامة، وكان سهل جدًا يأجل أي خطوة. لكنه قرر يبدأ رغم الظروف، ونظم وقته بين المذاكرة والتمرين. التزم بالخطة وبدأ يشوف نتائج تدريجيًا في جسمه ومستواه، ونجح دراسيًا في نفس الوقت، وأثبت إن البداية ممكنة في أي وقت." 
+  }
+];
+
+function ResultCard({ data, onClick }: { data: typeof resultCardsData[0], onClick: () => void }) {
+  return (
+    <div className="w-[300px] flex-shrink-0 group relative overflow-hidden rounded-[2rem] glass-card border border-border/50 hover:border-primary/50 transition-all duration-500 bg-secondary/10 hover:shadow-[0_0_30px_rgba(43,184,202,0.15)]">
+      <div 
+        className="relative aspect-[4/5] overflow-hidden cursor-pointer bg-background/50" 
+        onClick={onClick}
+      >
+        {/* Background Image */}
+        <img 
+          src={data.img} 
+          alt={data.name} 
+          className="w-full h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+        />
+        
+        {/* Gradient Overlay for info block readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 pointer-events-none" />
+
+        {/* Hover Alternative (Sleek Icon & Text instead of bulky button) */}
+        <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center z-20">
+          <div className="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center mb-3 bg-primary/20 text-primary shadow-[0_0_15px_rgba(43,184,202,0.5)] transform scale-50 group-hover:scale-100 transition-all duration-500 delay-75">
+            <ArrowRight className="w-6 h-6 -rotate-180" />
+          </div>
+          <span className="text-white font-black tracking-wide text-xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+            اكتشف القصة
+          </span>
+        </div>
+
+        {/* Info Block Always visible */}
+        <div className="absolute bottom-6 left-6 right-6 z-10 transition-transform duration-500 group-hover:translate-y-4 group-hover:opacity-0 pointer-events-none flex items-end justify-between">
+          <div className="text-right">
+            <h4 className="text-xl font-black text-foreground drop-shadow-md mb-1">{data.name}</h4>
+            <p className="text-xs text-primary uppercase font-bold tracking-widest">{data.sport}</p>
+          </div>
+          <div className="bg-background/80 backdrop-blur-md px-3 py-2 rounded-xl border border-border/50 text-center">
+            <span className="block text-accent font-black text-lg leading-none">{data.stats}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function HomePage() {
+  const [selectedHero, setSelectedHero] = useReactState<typeof resultCardsData[0] | null>(null);
+
+  return (
+    <div className="min-h-screen bg-background relative">
 
       {/* Hero Section */}
       <section id="hero" className="relative md:h-screen min-h-[600px] flex items-center overflow-hidden pt-32 pb-16 md:pt-20 md:pb-10">
@@ -219,22 +368,19 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-16 md:mb-20 text-center lg:text-right">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-tight">
-              ليه نتيجتك <br /><span className="text-primary italic">واقفة؟</span>
+              المعادلة اللي ناقصاك <br /><span className="text-primary italic">عشان توصل للقمة</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl text-lg mx-auto lg:mx-0">
-              المشكلة مش في إرادتك — المشكلة إن التدريب التقليدي بيشتغل بالتخمين. 
-            </p>
-            <p className="text-muted-foreground max-w-2xl text-lg mx-auto lg:mx-0">
-              B•Stance بتشتغل بالبيانات الحقيقية لجسمك.
+              التمرين لوحده بيمثل 30% بس من النتيجة. الـ 70% الباقيين هما التخصص الحقيقي لـ B•Stance.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8 bg-secondary/30 rounded-3xl overflow-hidden relative group border border-border/50">
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent p-8 md:p-12 flex flex-col justify-end z-10">
-                <span className="text-primary font-bold text-xs md:text-sm uppercase mb-4 tracking-widest text-glow">تحليل الحركة</span>
-                <h4 className="text-3xl md:text-4xl font-black uppercase mb-4 tracking-tighter">اعرف جسمك بالأرقام</h4>
+                <span className="text-primary font-bold text-xs md:text-sm uppercase mb-4 tracking-widest text-glow">التشخيص الدقيق</span>
+                <h4 className="text-3xl md:text-4xl font-black uppercase mb-4 tracking-tighter">البصمة الرياضية الحقيقية</h4>
                 <p className="text-muted-foreground max-w-md text-sm md:text-base leading-relaxed">
-                  بنحلل طريقة حركتك ونكتشف أي ضعف أو خلل قبل ما يتحول لإصابة — وبنبني خطتك على أساس ده.
+                  كل لاعب جيناته، سرعة حرقه، ونقاط ضعفه مختلفة. بنبدأ بتحليل InBody وتقييم حركي شامل عشان نعرف "قدرة تحملك" الحقيقية، مش اللي الورقة بتقوله.
                 </p>
               </div>
               <img alt="Biometric scanning" className="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0 absolute inset-0 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcidyI8KNBsjflGKLwTfsnHsd5PO9yBEOAGC-RiK2T2xYEZ83rZzpccvbaTeqg8eZYEfTcOh3pQ_TNoMGEtJZVabbX_vC5ZyPe5OZF0yEqyYhfCO9-8kT1OLy34KwSLVR5DCU12fR7W8FM4KknGBup7lmTwItiiMD3rWZ8Jq6y1OAgw7mJ5XVuRgv1yFOAVclniWgvCaDvSaDhJkvzS2c--s2e9AOqjWbJ0tF_mn-r5EJaNmER8dX4ajUyqVlK9zSj2buL5sW9YnDb" />
@@ -243,16 +389,16 @@ export default function HomePage() {
             <div className="lg:col-span-4 flex flex-col gap-8">
               <div className="bg-secondary/20 p-8 md:p-10 rounded-3xl flex flex-col justify-center border border-border/30 relative group">
                 <span className="text-muted-foreground font-bold text-xs uppercase mb-6 tracking-widest">التدريب التقليدي</span>
-                <h5 className="text-xl md:text-2xl font-bold mb-4">تخمين وتجربة</h5>
+                <h5 className="text-xl md:text-2xl font-bold mb-4">نظام "الفورمة الواحدة"</h5>
                 <p className="text-muted-foreground text-sm leading-relaxed border-r-2 border-border/50 pr-4">
-                  "أحسن وعاش و زوّد التمرين الأسبوع ده… يمكن ده اللي ناقص!"
+                  "نفس البرنامج لكل الناس، ونفس الأكل لكل الأوزان.. والبقاء للأقوى!"
                 </p>
               </div>
               <div className="bg-primary p-8 md:p-10 rounded-3xl flex flex-col justify-center text-primary-foreground relative shadow-[0_10px_40px_rgba(57,255,20,0.2)]">
-                <span className="font-bold text-xs uppercase mb-6 tracking-widest opacity-80">نهج B•Stance</span>
-                <h5 className="text-xl md:text-2xl font-black mb-4">قرارات بالبيانات</h5>
+                <span className="font-bold text-xs uppercase mb-6 tracking-widest opacity-80">نهج B•Stance الذكي</span>
+                <h5 className="text-xl md:text-2xl font-black mb-4">التدريب المتكيف والتحكم في الاستشفاء</h5>
                 <p className="text-primary-foreground/90 font-medium text-sm leading-relaxed border-r-2 border-primary-foreground/30 pr-4">
-                  "جسمك تعبان النهارده — التمرين هيكون خفيف وتعافي. لازم نحافظ على مستواك."
+                  نظامنا بيعدل حمل التمرين يوم بيوم بناءً على جودة نومك وإجهادك.. بنعرف إمتى جسمك محتاج راحة وإمتى محتاج زقة بعلم التغذية والاستشفاء لترجع للملعب 100%.
                 </p>
               </div>
             </div>
@@ -260,80 +406,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Results Section */}
-      <section className="py-24 md:py-32 bg-background border-t border-border/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-24">
-            <div className="lg:w-3/5 text-center lg:text-right">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
-                نتائج <br /><span className="text-primary italic">حقيقية.</span>
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-xl mx-auto lg:mx-0">
-                مش وعود فاضية — دي أرقام حقيقية من لاعبين اشتغلوا مع B•Stance خلال أول 3 شهور:
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
-              <div className="text-center p-8 glass-card spotlight rounded-2xl border border-primary/20 min-w-[170px]">
-                <span className="block text-4xl md:text-5xl font-black text-primary mb-2">+34%</span>
-                <span className="text-sm text-muted-foreground uppercase font-bold">تحسن في القوة</span>
-              </div>
-              <div className="text-center p-8 glass-card spotlight rounded-2xl border border-accent/20 min-w-[170px]">
-                <span className="block text-4xl md:text-5xl font-black text-accent mb-2">-22%</span>
-                <span className="text-sm text-muted-foreground uppercase font-bold">تقليل الإصابات</span>
-              </div>
+      {/* Infinite Results Scrolling Section */}
+      <section className="py-24 md:py-32 bg-background border-t border-border/50 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-16 md:mb-24 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium mb-6">
+            <Star className="w-3 h-3 fill-primary text-primary" />
+            قصص نجاح حقيقية
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-tight">
+            أبطال <span className="text-gradient-hero">B•Stance</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl text-lg mx-auto">
+            رحلات تحول استثنائية لأبطالنا... كل إنجاز هو نتيجة تخطيط علمي وتدريب موجه، وليس صدفة.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-8 relative z-10">
+          {/* Row 1 */}
+          <div className="flex overflow-hidden pause-on-hover">
+            <div className="flex animate-scroll-left w-max gap-6 pr-6">
+              {[...resultCardsData, ...resultCardsData, ...resultCardsData, ...resultCardsData].map((data, index) => (
+                <ResultCard key={`row1-${index}`} data={data} onClick={() => setSelectedHero(data)} />
+              ))}
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center rtl">
-            <div className="relative group mx-auto lg:mx-0 w-full max-w-sm md:max-w-md">
-              <div className="rounded-[2rem] overflow-hidden border border-border/40 shadow-2xl relative bg-secondary/20">
-                <img alt="Medical fiber activation" className="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80" src="/imgs/res%201.jpg" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10"></div>
-              </div>
-              <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 glass-card p-6 md:p-8 rounded-2xl border border-primary/30 shadow-2xl scale-90 md:scale-110 z-10">
-                <div className="flex items-center gap-4 md:gap-5">
-                  <div className="p-3 bg-primary/20 rounded-xl">
-                    <Zap className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-                  </div>
-                  <div>
-                    <span className="block text-[10px] md:text-xs text-muted-foreground uppercase font-bold mb-1">متوسط تقييم الأداء</span>
-                    <span className="text-2xl md:text-4xl font-black text-primary">88/100</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="space-y-12 lg:pr-10 mt-12 lg:mt-0">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-[2px] w-12 bg-primary"></div>
-                  <h4 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-foreground">01. نقيّم مستواك</h4>
-                </div>
-                <p className="text-muted-foreground leading-relaxed pr-16 text-sm md:text-base">
-                  بنبدأ بتقييم شامل لجسمك وأدائك — نعرف مستواك بالضبط ونحدد نقاط القوة واللي محتاج تطوير.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-[2px] w-12 bg-accent"></div>
-                  <h4 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-foreground">02. بنبني خطتك</h4>
-                </div>
-                <p className="text-muted-foreground leading-relaxed pr-16 text-sm md:text-base">
-                  تدريب + تغذية + استشفاء — كل ده متخصص ليك أنت، مش برنامج عام لكل الناس.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-[2px] w-12 bg-border"></div>
-                  <h4 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-foreground">03. بنتابعك ونطور</h4>
-                </div>
-                <p className="text-muted-foreground leading-relaxed pr-16 text-sm md:text-base">
-                  مش بنسيبك لوحدك — في متابعة يومية وتعديل مستمر على حسب تقدمك ونتائجك الحقيقية.
-                </p>
-              </div>
+          {/* Row 2 */}
+          <div className="flex overflow-hidden pause-on-hover">
+            <div className="flex animate-scroll-right w-max gap-6 pr-6">
+              {[...resultCardsData, ...resultCardsData, ...resultCardsData, ...resultCardsData].reverse().map((data, index) => (
+                <ResultCard key={`row2-${index}`} data={data} onClick={() => setSelectedHero(data)} />
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 blur-[150px] rounded-full -translate-y-1/2 pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/10 blur-[150px] rounded-full -translate-y-1/2 pointer-events-none" />
       </section>
 
       {/* Testimonials */}
@@ -384,7 +494,7 @@ export default function HomePage() {
 
       {/* Registration / CTA Section */}
       <section id="registration-form" className="py-20 border-t border-border scroll-mt-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black tracking-tight mb-4">
               ابدأ رحلتك دلوقتي <span className="text-primary">(مجاني 100%)</span>
@@ -394,12 +504,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid lg:grid-cols-[1.7fr_1fr] md:grid-cols-2 gap-8 lg:gap-12 items-start">
             <WhatsAppForm />
 
             {/* Side CTAs */}
             <div className="space-y-6">
-              <div className="glass-card rounded-2xl p-6 border border-primary/20">
+              <div className="glass-card rounded-2xl p-6 md:p-8 border border-primary/20">
                 <h3 className="font-bold text-lg mb-2">ابدأ التقييم المجاني الآن</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   تقييم شامل لمستواك الرياضي مجاناً بدون أي التزام. اكتشف نقاط قوتك وما تحتاج تطوره.
@@ -411,7 +521,7 @@ export default function HomePage() {
                   ابدأ الآن <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
-              <div className="glass-card rounded-2xl p-6 border border-accent/20">
+              <div className="glass-card rounded-2xl p-6 md:p-8 border border-accent/20">
                 <h3 className="font-bold text-lg mb-2">احجز مكالمة استشارية</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   تحدث مع أحد متخصصينا واعرف خطة التطوير المناسبة لك أو لأكاديميتك.
@@ -429,7 +539,7 @@ export default function HomePage() {
         </div>
       </section>
 
-            {/* FAQ Section */}
+      {/* FAQ Section */}
       <section className="py-20 border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -438,21 +548,7 @@ export default function HomePage() {
             </h2>
             <p className="text-muted-foreground">كل اللي محتاج تعرفه قبل ما تبدأ</p>
           </div>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="glass-card rounded-2xl p-6 border border-border/50 hover:border-primary/20 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-primary font-black text-xs">{i + 1}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-foreground mb-2">{faq.q}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <FAQAccordion />
         </div>
       </section>
 
@@ -530,6 +626,67 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Hero Modal */}
+      {selectedHero && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" dir="rtl">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-background/80 animate-backdrop-in" 
+            onClick={() => setSelectedHero(null)} 
+          />
+          
+          {/* Modal Content */}
+          <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card border border-border/50 rounded-3xl shadow-[0_0_50px_rgba(43,184,202,0.15)] bg-secondary/30 flex flex-col md:flex-row p-6 md:p-8 animate-modal-in">
+            {/* Close Button */}
+            <button 
+              onClick={() => setSelectedHero(null)} 
+              className="absolute top-4 right-4 md:top-6 md:left-6 md:right-auto z-10 w-10 h-10 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-border/50 hover:bg-destructive/20 hover:text-destructive transition-colors hidden md:flex"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Mobile Close Button */}
+            <button 
+              onClick={() => setSelectedHero(null)} 
+              className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center border border-border hover:bg-destructive/20 hover:text-destructive transition-colors md:hidden"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Image Column */}
+            <div className="w-full md:w-2/5 aspect-[4/5] overflow-hidden rounded-2xl relative mb-6 md:mb-0 md:ml-8 shrink-0 border border-primary/20 bg-background/50">
+              <img src={selectedHero.img} alt={selectedHero.name} className="w-full h-full object-contain" />
+              <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-border/50 flex items-center gap-2">
+                 <span className="text-accent font-black text-xl">{selectedHero.stats}</span>
+              </div>
+            </div>
+
+            {/* Details Column */}
+            <div className="w-full md:w-3/5 flex flex-col justify-center">
+               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium w-fit mb-4">
+                  <Star className="w-3 h-3 fill-primary" /> تحت إشراف: {selectedHero.coach}
+               </div>
+
+               <h3 className="text-3xl md:text-5xl font-black mb-1">{selectedHero.name}</h3>
+               <p className="text-muted-foreground font-bold uppercase tracking-widest text-sm mb-6">{selectedHero.sport}</p>
+               
+               <h4 className="text-lg md:text-xl font-bold mb-3 border-b border-border/50 pb-3 text-foreground">{selectedHero.category}</h4>
+               
+               <p className="text-muted-foreground leading-relaxed mb-8 md:text-lg">{selectedHero.story}</p>
+               
+               <Link
+                  href="#registration-form"
+                  onClick={() => setSelectedHero(null)}
+                  className="bg-primary text-primary-foreground font-black py-4 px-6 md:px-8 rounded-xl flex items-center justify-center gap-3 group w-full md:w-fit hover:shadow-[0_0_30px_rgba(43,184,202,0.4)] transition-all mt-auto"
+               >
+                  ابدأ رحلتك زي {selectedHero.name.split(' ')[0]}
+                  <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+               </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
