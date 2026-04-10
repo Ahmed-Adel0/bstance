@@ -8,7 +8,8 @@ import {
   CheckCircle,
   Building2,
   LayoutDashboard,
-  Zap
+  Zap,
+  ShieldCheck
 } from "lucide-react";
 
 export default function CorporateActivate() {
