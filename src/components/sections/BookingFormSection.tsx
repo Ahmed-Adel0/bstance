@@ -5,7 +5,7 @@ import {
   Trophy, 
   CheckCircle, 
   Clock, 
-  ShieldCheck, 
+  CheckCircle2, 
   BarChart3, 
   MessageCircle, 
   Zap 
@@ -15,7 +15,7 @@ const perks = [
   { icon: <Trophy size={18} />, text: "برامج مصممة تحت إشراف متخصصين معتمدين" },
   { icon: <CheckCircle size={18} />, text: "تأكيد فوري عبر واتساب في أقل من دقيقتين" },
   { icon: <Clock size={18} />, text: "مواعيد مرنة — صباحاً ومساءً حسب جدولك" },
-  { icon: <ShieldCheck size={18} />, text: "تعقيم كامل بمعايير طبية معتمدة في كل جلسة" },
+  { icon: <CheckCircle2 size={18} />, text: "تعقيم كامل بمعايير طبية معتمدة في كل جلسة" },
   { icon: <BarChart3 size={18} />, text: "متابعة مستمرة وتقييم دوري للأداء" },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ShieldCheck, BarChart3, Trophy, Rocket, MessageCircle, ChevronLeft } from "lucide-react";
+import { CheckCircle2, BarChart3, Trophy, Rocket, MessageCircle, ChevronLeft } from "lucide-react";
 
 /* ════════════════════════════════════════════════
    CTASection — Call To Action النهائي  
@@ -54,7 +54,7 @@ export default function CTASection() {
             {/* Trust markers */}
             <div className="cta-trust">
               {[
-                { icon: <ShieldCheck size={18} />, text: "مدربون معتمدون دولياً" },
+                { icon: <CheckCircle2 size={18} />, text: "مدربون معتمدون دولياً" },
                 { icon: <BarChart3 size={18} />, text: "خطط مبنية على قياسات حقيقية" },
                 { icon: <Trophy size={18} />, text: "نتائج مضمونة بالالتزام" },
               ].map((badge, i) => (

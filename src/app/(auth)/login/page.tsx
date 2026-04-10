@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { login } from '@/app/auth/actions'
-import { Zap, ChevronLeft, Mail, Lock, ShieldCheck } from 'lucide-react'
+import { Zap, ChevronLeft, Mail, Lock, CheckCircle2 } from 'lucide-react'
 
 export default function LoginPage() {
   return (
@@ -91,7 +91,7 @@ export default function LoginPage() {
 
         {/* Footer Security Note */}
         <div className="mt-8 flex items-center justify-center gap-2 opacity-30 grayscale hover:grayscale-0 transition-all cursor-default">
-           <ShieldCheck className="w-3 h-3" />
+           <CheckCircle2 className="w-3 h-3" />
            <span className="text-[9px] font-black tracking-[0.2em]">SECURE ACCESS • END-TO-END ENCRYPTED</span>
         </div>
       </div>

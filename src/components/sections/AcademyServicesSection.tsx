@@ -6,7 +6,7 @@ import {
   Activity, 
   Droplets, 
   Zap, 
-  ShieldCheck, 
+  CheckCircle2, 
   Trophy, 
   School, 
   Target,
@@ -28,7 +28,7 @@ const services = [
 const goals = [
   { icon: <Dumbbell size={18} />, text: "تحسين القوة واللياقة" },
   { icon: <Zap size={18} />, text: "تسريع التعافي" },
-  { icon: <ShieldCheck size={18} />, text: "تقليل الإصابات" },
+  { icon: <CheckCircle2 size={18} />, text: "تقليل الإصابات" },
   { icon: <Trophy size={18} />, text: "الوصول لأفضل أداء في المنافسات" },
 ];
 

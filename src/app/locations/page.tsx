@@ -9,7 +9,7 @@ import {
   Phone, 
   Clock, 
   ChevronRight,
-  ShieldCheck,
+  CheckCircle2,
   Star,
   Trophy,
   GraduationCap
@@ -204,7 +204,7 @@ export default function LocationsPage() {
       <section className="py-24 border-t border-border/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium mb-6">
-              <ShieldCheck className="w-4 h-4" />
+              <CheckCircle2 className="w-4 h-4" />
               توسع معانا
            </div>
            <h2 className="text-3xl md:text-5xl font-black mb-6">هل تملك منشأة رياضية؟</h2>

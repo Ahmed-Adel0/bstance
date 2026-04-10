@@ -12,7 +12,7 @@ import {
   ChevronRight,
   ClipboardCheck,
   Zap,
-  ShieldCheck
+  CheckCircle2
 } from "lucide-react";
 
 export default function AssessmentFormPage() {
@@ -206,7 +206,7 @@ export default function AssessmentFormPage() {
         <div className="space-y-6">
            <div className="glass-card rounded-3xl p-6 border border-border bg-primary/5">
               <div className="flex items-center gap-2 mb-4">
-                 <ShieldCheck className="w-4 h-4 text-primary" />
+                 <CheckCircle2 className="w-4 h-4 text-primary" />
                  <h4 className="text-sm font-black">لماذا هذا التقييم؟</h4>
               </div>
               <p className="text-[10px] text-muted-foreground leading-relaxed font-bold">

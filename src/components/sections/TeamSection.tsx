@@ -16,7 +16,7 @@ import {
   Droplets,
   ShieldAlert,
   Sword,
-  ShieldCheck
+  CheckCircle2
 } from 'lucide-react';
 
 // Custom Icons handled by Lucide now
@@ -133,7 +133,7 @@ const teamMembers = [
     tags: [
       { icon: <Sword size={14} />, label: "Kickboxing & Boxing" },
       { icon: <Apple size={14} />, label: "Sports Nutrition" },
-      { icon: <ShieldCheck size={14} />, label: "Injury Prevention" },
+      { icon: <CheckCircle2 size={14} />, label: "Injury Prevention" },
     ],
     social: [
       // { platform: "whatsapp",  url: "https://wa.me/201279266345",             label: "WhatsApp" },

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { signup } from '@/app/auth/actions'
-import { Zap, ChevronLeft, Mail, Lock, ShieldCheck, UserPlus } from 'lucide-react'
+import { Zap, ChevronLeft, Mail, Lock, CheckCircle2, UserPlus } from 'lucide-react'
 
 export default function SignupPage() {
   return (
@@ -89,7 +89,7 @@ export default function SignupPage() {
 
         {/* Footer Security Note */}
         <div className="mt-8 flex items-center justify-center gap-2 opacity-30 grayscale hover:grayscale-0 transition-all cursor-default">
-           <ShieldCheck className="w-3 h-3" />
+           <CheckCircle2 className="w-3 h-3" />
            <span className="text-[9px] font-black tracking-[0.2em]">SECURE REGISTRATION • END-TO-END ENCRYPTED</span>
         </div>
       </div>

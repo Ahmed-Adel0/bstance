@@ -5,7 +5,7 @@ import {
   Apple, 
   Activity, 
   Trophy, 
-  ShieldCheck, 
+  CheckCircle2, 
   Star, 
   Flame, 
   Droplets, 
@@ -43,7 +43,7 @@ const mainServices = [
 
 const audience = [
   { icon: <Trophy size={20} color="var(--gold)" />, text: "الأبطال والمحترفون الساعون لكسر أرقامهم وصدارة الترتيب" },
-  { icon: <ShieldCheck size={20} color="var(--teal-light)" />, text: "كل رياضي يبحث عن التطور المستمر وحماية مستقبله الرياضي من الإصابات" },
+  { icon: <CheckCircle2 size={20} color="var(--teal-light)" />, text: "كل رياضي يبحث عن التطور المستمر وحماية مستقبله الرياضي من الإصابات" },
   { icon: <Star size={20} color="var(--gold)" />, text: "الأكاديميات الرياضية والناشئين لبناء أساس بدني وصحي سليم" },
   { icon: <Flame size={20} color="#ff8a65" />, text: "مرتادو الصالات الرياضية والمهتمون بالفتنس لنتائج حقيقية وجسم مثالي" },
 ];
