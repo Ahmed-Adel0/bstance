@@ -14,6 +14,11 @@ import {
   Bell,
   Users,
   Building2,
+  FileText,
+  ClipboardList,
+  Calendar,
+  Target,
+  BarChart3,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -33,7 +38,11 @@ const athleteNav = [
 const specialistNav = [
   { label: "لوحة التحكم", href: "/specialist", icon: LayoutDashboard },
   { label: "اللاعبين", href: "/specialist/athletes", icon: Users },
-  { label: "المحادثة", href: "/specialist/schedule", icon: MessageSquare },
+  { label: "التقييمات (Elite)", href: "/specialist/assessments", icon: Target },
+  { label: "تقارير الأداء", href: "/specialist/reports", icon: BarChart3 },
+  { label: "البروتوكولات (SOPs)", href: "/specialist/sop", icon: FileText },
+  { label: "سجل الجلسات", href: "/specialist/logs", icon: ClipboardList },
+  { label: "الجدول", href: "/specialist/schedule", icon: Calendar },
 ];
 
 const adminNav = [

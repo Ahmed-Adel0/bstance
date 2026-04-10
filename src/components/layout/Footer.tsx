@@ -80,6 +80,7 @@ export default function Footer() {
             <li><a href="#athlete-dev">منهج صناعة البطل</a></li>
             <li><a href="#team">فريق العمل</a></li>
             <li><a href="#faq">الأسئلة الشائعة</a></li>
+            <li><Link href="/corporate">خدمات الشركات</Link></li>
             <li>
               <a href="#booking" className="flex items-center gap-2">
                 <CalendarCheck size={16} />

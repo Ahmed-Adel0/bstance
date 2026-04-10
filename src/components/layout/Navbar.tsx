@@ -9,6 +9,7 @@ const navLinks = [
   { label: "كيف تعمل", href: "/how-it-works" },
   { label: "الخدمات", href: "/services" },
   { label: "الأسعار", href: "/pricing" },
+  { label: "الشركات", href: "/corporate" },
   { label: "النتائج", href: "/results" },
   { label: "الأكاديميات", href: "/academy" },
   { label: "عنا", href: "/about" },

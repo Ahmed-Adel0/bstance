@@ -259,21 +259,23 @@ nextjs-portal {
 
 /* Infinite Scroll Animations (RTL Adapted) */
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes scroll-right {
-  0% { transform: translateX(50%); }
-  100% { transform: translateX(0); }
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 .animate-scroll-left {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 60s linear infinite;
+  will-change: transform;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 40s linear infinite;
+  animation: scroll-right 60s linear infinite;
+  will-change: transform;
 }
 
 .pause-on-hover:hover .animate-scroll-left,

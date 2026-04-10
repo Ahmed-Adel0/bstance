@@ -6,8 +6,23 @@ import Image from "next/image";
 export default function UnderConstruction() {
   const pathname = usePathname();
 
-  // Show only on non-home pages
-  if (pathname === "/") return null;
+  // Show only on non-home, non-pricing, non-results, and non-blog pages
+  const allowedPaths = [
+    "/", 
+    "/pricing", 
+    "/results", 
+    "/how-it-works", 
+    "/corporate", 
+    "/locations", 
+    "/athlete", 
+    "/event", 
+    "/services", 
+    "/academy", 
+    "/about"
+  ];
+  const isAllowed = allowedPaths.some(p => pathname === p || pathname.startsWith(p));
+  
+  if (isAllowed || pathname.startsWith("/blog")) return null;
 
   return (
     <div className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center px-6 overflow-hidden">

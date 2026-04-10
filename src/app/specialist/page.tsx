@@ -11,7 +11,8 @@ import {
   PieChart,
   Pie,
 } from "recharts";
-import { Users, UserPlus, FileText, AlertTriangle, ChevronRight, Search, LayoutGrid, Calendar } from "lucide-react";
+import { Users, UserPlus, FileText, AlertTriangle, ChevronRight, Search, LayoutGrid, Calendar, ClipboardList } from "lucide-react";
+import Link from "next/link";
 import StatsCard from "@/components/ui/StatsCard";
 
 const athleteGrowth = [
@@ -45,15 +46,15 @@ export default function SpecialistDashboard() {
            <h1 className="text-3xl font-black tracking-tight">نظام إدارة الأداء</h1>
            <p className="text-muted-foreground text-sm mt-1">مرحباً د. محمد ، إليك نظرة شاملة على أداء فريقك اليوم.</p>
         </div>
-        <div className="flex gap-2">
-           <button className="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-lg shadow-primary/20 flex items-center gap-2 group">
-              <UserPlus className="w-4 h-4 group-hover:scale-110 transition-transform" />
-              إضافة لاعب جديد
-           </button>
-           <button className="px-4 py-2 rounded-xl bg-secondary border border-border text-foreground font-bold text-sm flex items-center gap-2 hover:bg-secondary/70 transition-all">
+        <div className="flex flex-wrap gap-2">
+           <Link href="/specialist/sop" className="px-4 py-2 rounded-xl bg-secondary border border-border text-foreground font-bold text-sm flex items-center gap-2 hover:bg-secondary/70 transition-all">
               <FileText className="w-4 h-4" />
-              تقرير الأداء
-           </button>
+              البروتوكولات (SOPs)
+           </Link>
+           <Link href="/specialist/logs" className="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-lg shadow-primary/20 flex items-center gap-2 group">
+              <ClipboardList className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              تسجيل جلسة
+           </Link>
         </div>
       </div>
 

@@ -12,6 +12,8 @@ import {
   CheckCircle,
   TrendingUp,
   Users,
+  User,
+  LayoutDashboard,
   Zap,
   ChevronRight,
   Play,
@@ -159,42 +161,124 @@ const resultCardsData = [
     name: "عبد الملك", 
     sport: "لياقة وتأهيل", 
     stats: "تعافي كامل", 
-    img: "/clients/عبدالملك.jpg", 
+    img: "/clients/abdelmalek.jpg", 
     coach: "B•Stance Team", 
     category: "إعادة تأهيل إصابات", 
     story: "عبد الملك كان عنده تحدي صعب، انزلاق غضروفي في الفقرة الرابعة والخامسة مع ضغط شغل يومي. الوضع كان ممكن يخليه يوقف تمامًا، لكنه قرر يكمل. اشتغلنا معاه على برنامج تدريبي آمن مناسب لحالته مع نظام غذائي يساعده على التعافي. خلال شهر ونص بس بدأ يظهر فرق واضح في جسمه وأدائه، وقدر يتحسن بدون ما يضغط على إصابته." 
   },
   { 
     id: 4, 
-    name: "أحمد", 
-    sport: "كونغ فو", 
-    stats: "+12kg عضل", 
-    img: "/imgs/res 1.jpg", 
+    name: "تامر", 
+    sport: "إكتومورف / حرق عالي", 
+    stats: "تحول كتلة عضلية", 
+    img: "/clients/tamer.jpeg", 
     coach: "B•Stance Team", 
-    category: "بناء عضلي رياضي", 
-    story: "أحمد بدأ رحلته كلاعب كونغ فو بوزن 58 كجم وكان محتاج يبني جسمه عشان ينافس بشكل أقوى. التزم ببرنامج تدريب مكثف ونظام غذائي دقيق مناسب لطبيعة لعبته. خلال 3 شهور وصل لوزن 70 كجم مع تحسن كبير في القوة والسرعة ورد الفعل، وأصبح جاهز للمنافسة بشكل أفضل." 
+    category: "زيادة وزن وتنشيف", 
+    story: "تامر كان من النوع اللي ناس كتير بتقول عليه “صعب يزيد”… جسم إكتومورف، حرق عالي، وزيادة الوزن عنده تحدي كبير. لكن مع الالتزام بالنظام الصح: تدريب + تغذية + متابعة مستمرة خلال 4 شهور ونص بس… قدر يعمل تحول واضح في الكتلة العضلية والنشفان. النتيجة؟ جسم متوازن وقوي يثبت إن المشكلة مش في الجينات… المشكلة في النظام." 
   },
   { 
     id: 5, 
-    name: "محمود", 
-    sport: "كونغ فو / حركة", 
-    stats: "-8kg وزن", 
-    img: "/clients/محمود كونغ فو.jpg", 
+    name: "الديب", 
+    sport: "تطوير أداء", 
+    stats: "تحول ملحوظ", 
+    img: "/clients/deeb.jpeg", 
     coach: "B•Stance Team", 
-    category: "تحكم وتطوير أداء", 
-    story: "محمود بدأ بوزن 68 كجم وكان محتاج يتحكم في جسمه ويحسن أداءه داخل اللعب. اشتغل على نظام تدريب منتظم وتغذية مخصصة لهدفه. خلال فترة قصيرة قدر ينزل لوزن 60 كجم، ومع ده تحسنت سرعته وقدرته على التحكم في جسمه، وده انعكس بشكل واضح على مستواه وثقته أثناء اللعب." 
+    category: "التزام واستمرارية", 
+    story: "رحلة الديب لسه مكملة… لكن حتى أول مرحلة من التحول كانت كفاية إنها تبين الفرق. التغيير اللي حصل في البداية بس كان ملحوظ جدًا، وده بسبب الالتزام والاستمرارية. والأهم؟ المستوى الحالي بقى مختلف تمامًا عن البداية." 
   },
   { 
     id: 6, 
+    name: "د. طارق شريف", 
+    sport: "لياقة بدنية", 
+    stats: "تحول في 5 شهور", 
+    img: "/clients/tarek-sherif.jpeg", 
+    coach: "B•Stance Team", 
+    category: "تنظيم وانضباط", 
+    story: "طبيعة شغله كدكتور كانت ممكن تكون عائق… لكن عقليته خلتها ميزة. خلال 5 شهور فقط، قدر يوصل لتغير واضح في جسمه وأدائه. التنظيم والانضباط كانوا العامل الأساسي في التحول ده، وده اللي خلا النتيجة تطلع بالشكل ده." 
+  },
+  { 
+    id: 7, 
+    name: "محمود (حووود)", 
+    sport: "لاعب كورة", 
+    stats: "+زيادة عضلية", 
+    img: "/clients/mahmoud.jpeg", 
+    coach: "B•Stance Team", 
+    category: "تطوير أداء رياضي", 
+    story: "المعروف إن لاعبي الكورة صعب يزيدوا كتلة عضلية بسبب طبيعة اللعب والمجهود العالي. لكن محمود قرر يبدأ بشكل مختلف… وخلال 9 شهور قدر: يزيد كتلته العضلية ويحافظ على لياقته ويطور أداؤه داخل الملعب. أثبت إن التوازن ممكن… لو النظام صح." 
+  },
+  { 
+    id: 8, 
+    name: "الاتش", 
+    sport: "تغيير عادات", 
+    stats: "أسلوب حياة جديد", 
+    img: "/clients/hesham.jpeg", 
+    coach: "B•Stance Team", 
+    category: "تحول كامل", 
+    story: "رحلته ما كانتش بس شكل جسم… كانت تغيير كامل في أسلوب حياته. مشاكل في النوم، الأكل، وعدم انتظام التمرين… لكن خلال 7 شهور: بدأ يلتزم عدل عاداته وبنى نظام حياة جديد. النتيجة؟ تغيير واضح في الجسم… والأهم في العقلية." 
+  },
+  { 
+    id: 9, 
+    name: "كابتن ميسو", 
+    sport: "إندومورف", 
+    stats: "تحول متوازن", 
+    img: "/clients/miso.jpeg", 
+    coach: "B•Stance Team", 
+    category: "تطوير بناء عضلي", 
+    story: "بدأ بجسم إندومورف… دهون أعلى وكتلة عضلية أقل. لكن مع الاستمرارية لمدة سنة وشهرين: قدر يحول جسمه لشكل متوازن ويزود الكتلة العضلية بشكل واضح ويقلل نسبة الدهون تدريجيًا. رحلة طويلة… لكن نتيجة تستاهل." 
+  },
+  { 
+    id: 10, 
+    name: "عبود", 
+    sport: "تطوير مستمر", 
+    stats: "تحسن في الأداء", 
+    img: "/clients/abdelrahman.jpeg", 
+    coach: "B•Stance Team", 
+    category: "صبر واستمرارية", 
+    story: "في البداية، التغيير كان واضح… لكن اللي حصل بعد كده كان أقوى بكتير. بعد سنة من التمرين: تطور كبير في الشكل زيادة في القوة وتحسن في الأداء. رحلة تثبت إن الاستمرارية أهم من السرعة." 
+  },
+  { 
+    id: 11, 
+    name: "سيد", 
+    sport: "مجهود شاق (حداد)", 
+    stats: "نشفان ملحوظ", 
+    img: "/clients/sayed-haddad.jpeg", 
+    coach: "B•Stance Team", 
+    category: "تحدي الظروف", 
+    story: "شغله صعب جدًا (حداد)… مجهود يومي عالي جدًا. لكن رغم كده، خلال 45 يوم بس: وصل لنشفان ملحوظ بدأ يظهر تغيير في جسمه. النتيجة دي تثبت إن أي حد يقدر يبدأ… مهما كانت ظروفه." 
+  },
+  { 
+    id: 12, 
+    name: "مهندس طاهر", 
+    sport: "لياقة بدنية", 
+    stats: "إصرار وتغيير", 
+    img: "/clients/eng taher.jpeg", 
+    coach: "B•Stance Team", 
+    category: "الرجوع بعد التوقف", 
+    story: "فترات عدم التزام بسبب الدراسة كانت بتوقف التقدم شوية… لكن كل مرة كان بيرجع يكمل وده اللي خلّى في الآخر يوصل لتغيير واضح في جسمه. رحلته بتقول إن: الرجوع أهم من إنك تكمل بدون توقف." 
+  },
+  { 
+    id: 13, 
+    name: "موزة", 
+    sport: "لياقة بدنية", 
+    stats: "صبر وإنجاز", 
+    img: "/clients/moza.jpeg", 
+    coach: "B•Stance Team", 
+    category: "استمرارية", 
+    story: "رحلته كانت تدريب متقطع… كل شوية يبدأ ويقف لكن في كل مرة بيرجع… كان بيرجع أقوى من الأول ومع الصبر والاستمرارية بدأ يظهر تغيير حقيقي في جسمه لأن السر مش إنك متوقفش… السر إنك دايمًا ترجع." 
+  },
+  { 
+    id: 14, 
     name: "عادل", 
     sport: "لياقة عامة", 
     stats: "تحول وتفوق", 
-    img: "/clients/عادل.jpg", 
+    img: "/clients/adel.jpg", 
     coach: "B•Stance Team", 
     category: "إدارة الوقت واللياقة", 
     story: "عادل كان في فترة صعبة جدًا مع ضغط امتحانات الثانوية العامة، وكان سهل جدًا يأجل أي خطوة. لكنه قرر يبدأ رغم الظروف، ونظم وقته بين المذاكرة والتمرين. التزم بالخطة وبدأ يشوف نتائج تدريجيًا في جسمه ومستواه، ونجح دراسيًا في نفس الوقت، وأثبت إن البداية ممكنة في أي وقت." 
   }
 ];
+
+
 
 function ResultCard({ data, onClick }: { data: typeof resultCardsData[0], onClick: () => void }) {
   return (
@@ -271,10 +355,9 @@ export default function HomePage() {
 
               {/* Headline */}
               <h1 className="text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] md:leading-tight">
-                حوّل أداءك{" "}
-                <span className="text-gradient-hero">الرياضي</span>
+                حوّل أداءك{" "}<span className="text-gradient-hero">الرياضي</span>
                 <br />
-                بمنهج علمي متكامل
+                مع أول نظام تشغيل (Sports OS)
               </h1>
               
               <p className="text-sm sm:text-base md:text-xl font-medium text-muted-foreground leading-relaxed border-r-2 border-primary/50 pr-5 py-1.5 max-w-2xl" dir="rtl">
@@ -360,6 +443,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* How it Works Summary */}
+      <section className="py-24 bg-secondary/10 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black mb-4">رحلة التطور في <span className="text-gradient-hero">3 خطوات</span></h2>
+            <p className="text-muted-foreground">كيف نضمن لك الوصول لأقصى إمكانياتك البدنية؟</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { step: "01", title: "التقييم والتشخيص", desc: "تحليل InBody وتقييم حركي دقيق لتحديد احتياجات جسمك الحقيقية.", icon: User },
+              { step: "02", title: "تصميم الـ OS", desc: "بناء نظام تشغيل رياضي (تدريب + تغذية) مخصص لك من خبرائنا.", icon: LayoutDashboard },
+              { step: "03", title: "التنفيذ والنتائج", desc: "تمرن أونلاين أو في الجيم الشريك وتابع تطورك لحظة بلحظة.", icon: Zap },
+            ].map((s) => (
+              <div key={s.step} className="group p-8 rounded-3xl bg-background/50 border border-border/50 hover:border-primary/30 transition-all text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-all">
+                  <s.icon className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-xs font-bold text-primary mb-2 uppercase tracking-widest">خطوة {s.step}</div>
+                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+             <Link href="/how-it-works" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                اعرف التفاصيل الكاملة <ArrowRight className="w-4 h-4 -rotate-180" />
+             </Link>
+          </div>
+        </div>
+      </section>
+
       {/* The Gap / Bento Grid Section */}
       <section className="py-24 md:py-32 bg-background relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -425,7 +540,7 @@ export default function HomePage() {
           {/* Row 1 */}
           <div className="flex overflow-hidden pause-on-hover">
             <div className="flex animate-scroll-left w-max gap-6 pr-6">
-              {[...resultCardsData, ...resultCardsData, ...resultCardsData, ...resultCardsData].map((data, index) => (
+              {[...resultCardsData, ...resultCardsData].map((data, index) => (
                 <ResultCard key={`row1-${index}`} data={data} onClick={() => setSelectedHero(data)} />
               ))}
             </div>
@@ -434,7 +549,7 @@ export default function HomePage() {
           {/* Row 2 */}
           <div className="flex overflow-hidden pause-on-hover">
             <div className="flex animate-scroll-right w-max gap-6 pr-6">
-              {[...resultCardsData, ...resultCardsData, ...resultCardsData, ...resultCardsData].reverse().map((data, index) => (
+              {[...resultCardsData, ...resultCardsData].map((data, index) => (
                 <ResultCard key={`row2-${index}`} data={data} onClick={() => setSelectedHero(data)} />
               ))}
             </div>
@@ -444,6 +559,42 @@ export default function HomePage() {
         {/* Ambient Glows */}
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 blur-[150px] rounded-full -translate-y-1/2 pointer-events-none" />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/10 blur-[150px] rounded-full -translate-y-1/2 pointer-events-none" />
+      </section>
+
+      {/* Meet the Masters (Coach Social Proof) */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium mb-4">
+              <Star className="w-3 h-3" />
+              فريق الخبراء
+            </div>
+            <h2 className="text-4xl font-black tracking-tight">
+              أنت في أيدي <span className="text-gradient-hero">أمينة</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+              نخبة من المدربين والأطباء المتخصصين يعملون معاً كمنظومة واحدة لضمان نجاحك.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "د. أحمد فضل", role: "أخصائي التغذية والإنتاجية", bio: "خبير بناء الأنظمة الغذائية التي تدعم الأداء الرياضي العالي.", color: "primary" },
+              { name: "كابتن النحاس", role: "خبير الاستشفاء والريكافري", bio: "متخصص في علوم الاستشفاء العضلي وجلسات الريكافري الاحترافية.", color: "accent" },
+              { name: "كابتن عرفات", role: "خبير التدريب الرياضي", bio: "مدرب متخصص في تصميم برامج القوة والتحمل والتدريب الذكي.", color: "primary" },
+              { name: "كابتن الملا", role: "متخصص التأهيل والريكافري", bio: "خبير في إعادة التأهيل الرياضي وتحسين المرونة والأداء.", color: "accent" },
+            ].map((coach) => (
+              <div key={coach.name} className="glass-card rounded-2xl p-6 border border-border hover:border-primary/40 transition-all text-center group">
+                <div className="w-20 h-20 rounded-full bg-secondary/50 border-2 border-primary/20 mx-auto mb-6 flex items-center justify-center overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+                   <Users className="w-10 h-10 text-muted-foreground group-hover:text-primary" />
+                </div>
+                <h3 className="text-lg font-black">{coach.name}</h3>
+                <div className="text-xs text-primary font-bold mb-3 uppercase tracking-wider">{coach.role}</div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{coach.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Testimonials */}

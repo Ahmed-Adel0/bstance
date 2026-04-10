@@ -3,12 +3,22 @@ import { useState } from "react";
 import { Search, Filter, Mail, Phone, MoreVertical, LayoutGrid, List as ListIcon, ChevronRight, UserPlus, FileText, CheckCircle, AlertTriangle } from "lucide-react";
 
 const athletes = [
-  { id: 1, name: "محمد كريم", sport: "كرة قدم", category: "محترف", age: 16, status: "stable", commitment: 85, trend: "+5%", lastActive: "منذ ساعة", avatar: "م" },
-  { id: 2, name: "يوسف علي", sport: "سباحة", category: "ناشئ", age: 14, status: "warning", commitment: 62, trend: "-2%", lastActive: "منذ ساعتين", avatar: "ي" },
-  { id: 3, name: "أحمد رامي", sport: "ألعاب قوى", category: "محترف", age: 17, status: "stable", commitment: 93, trend: "+12%", lastActive: "منذ 4 ساعات", avatar: "أ" },
-  { id: 4, name: "زياد طارق", sport: "كرة سلة", category: "هواة", age: 15, status: "critical", commitment: 45, trend: "-15%", lastActive: "منذ يومين", avatar: "ز" },
-  { id: 5, name: "سارة حسن", sport: "تنس", category: "ناشئ", age: 13, status: "stable", commitment: 78, trend: "+2%", lastActive: "منذ 5 ساعات", avatar: "س" },
-  { id: 6, name: "عمر خالد", sport: "كرة قدم", category: "محترف", age: 18, status: "stable", commitment: 88, trend: "+4%", lastActive: "منذ 30 دقيقة", avatar: "ع" },
+  { id: 1, name: "تامر", sport: "Fitness", category: "إكتومورف", age: 22, status: "stable", commitment: 95, trend: "+15%", lastActive: "منذ ساعة", avatar: "ت" },
+  { id: 2, name: "الديب", sport: "Performance", category: "محترف", age: 24, status: "stable", commitment: 88, trend: "+8%", lastActive: "منذ ساعتين", avatar: "د" },
+  { id: 3, name: "د. طارق شريف", sport: "Fitness", category: "طبيب", age: 31, status: "stable", commitment: 92, trend: "+10%", lastActive: "منذ 4 ساعات", avatar: "ط" },
+  { id: 4, name: "محمود (حووود)", sport: "كرة قدم", category: "محترف", age: 20, status: "stable", commitment: 90, trend: "+12%", lastActive: "منذ يوم", avatar: "م" },
+  { id: 5, name: "الاتش", sport: "Lifestyle", category: "تحول", age: 25, status: "stable", commitment: 82, trend: "+5%", lastActive: "منذ 5 ساعات", avatar: "ه" },
+  { id: 6, name: "كابتن ميسو", sport: "Bodybuilding", category: "إندومورف", age: 26, status: "stable", commitment: 85, trend: "+7%", lastActive: "منذ 30 دقيقة", avatar: "م" },
+  { id: 7, name: "عبود", sport: "Performance", category: "ناشئ", age: 21, status: "stable", commitment: 94, trend: "+20%", lastActive: "منذ ساعتين", avatar: "ع" },
+  { id: 8, name: "سيد", sport: "Fitness", category: "تحدي", age: 28, status: "stable", commitment: 80, trend: "+25%", lastActive: "منذ 3 أيام", avatar: "س" },
+  { id: 9, name: "مهندس طاهر", sport: "Fitness", category: "إصرار", age: 27, status: "stable", commitment: 75, trend: "+4%", lastActive: "منذ يومين", avatar: "ط" },
+  { id: 10, name: "موزة", sport: "Fitness", category: "استمرارية", age: 23, status: "stable", commitment: 78, trend: "+6%", lastActive: "منذ ساعة", avatar: "م" },
+  { id: 11, name: "محمد كريم", sport: "كرة قدم", category: "محترف", age: 16, status: "stable", commitment: 85, trend: "+5%", lastActive: "منذ ساعة", avatar: "م" },
+  { id: 12, name: "يوسف علي", sport: "سباحة", category: "ناشئ", age: 14, status: "warning", commitment: 62, trend: "-2%", lastActive: "منذ ساعتين", avatar: "ي" },
+  { id: 13, name: "أحمد رامي", sport: "ألعاب قوى", category: "محترف", age: 17, status: "stable", commitment: 93, trend: "+12%", lastActive: "منذ 4 ساعات", avatar: "أ" },
+  { id: 14, name: "زياد طارق", sport: "كرة سلة", category: "هواة", age: 15, status: "critical", commitment: 45, trend: "-15%", lastActive: "منذ يومين", avatar: "ز" },
+  { id: 15, name: "سارة حسن", sport: "تنس", category: "ناشئ", age: 13, status: "stable", commitment: 78, trend: "+2%", lastActive: "منذ 5 ساعات", avatar: "س" },
+  { id: 16, name: "عمر خالد", sport: "كرة قدم", category: "محترف", age: 18, status: "stable", commitment: 88, trend: "+4%", lastActive: "منذ 30 دقيقة", avatar: "ع" },
 ];
 
 export default function AthletesPage() {
