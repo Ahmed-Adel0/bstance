@@ -45,6 +45,7 @@ export default function BlogPostDetail() {
   };
 
   const handleShare = async () => {
+    if (!post) return;
     if (navigator.share) {
       try {
         await navigator.share({
