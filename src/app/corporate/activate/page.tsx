@@ -5,11 +5,10 @@ import {
   Ticket, 
   ArrowRight, 
   MapPin, 
-  CheckCircle,
   Building2,
   LayoutDashboard,
   Zap,
-  ShieldCheck
+  CheckCircle2
 } from "lucide-react";
 
 export default function CorporateActivate() {
@@ -77,7 +76,7 @@ export default function CorporateActivate() {
         ) : (
           <div className="text-center animate-in fade-in zoom-in duration-500">
             <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6 border border-green-500/30">
-              <ShieldCheck className="w-10 h-10 text-green-500" />
+              <CheckCircle2 className="w-10 h-10 text-green-500" />
             </div>
             <h2 className="text-2xl font-black mb-4">تم التفعيل بنجاح!</h2>
             <p className="text-sm text-muted-foreground mb-8">
